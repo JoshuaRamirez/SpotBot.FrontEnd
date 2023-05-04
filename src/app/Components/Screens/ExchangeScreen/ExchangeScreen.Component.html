@@ -1,0 +1,52 @@
+<mat-card style="margin: 20px; padding: 20px;">
+  <mat-card-title style="margin-bottom: 20px">
+    KuCoin API Credentials
+  </mat-card-title>
+  <mat-card-content fxLayout="column" fxLayoutAlign="start">
+    <div fxLayout="row wrap">
+      <div fxFlex="100">
+        <mat-form-field fxFlexFill>
+          <mat-label>API Public Key</mat-label>
+          <input matInput placeholder="Enter your API Public Key" [(ngModel)]="Data.ApiPublicKey">
+        </mat-form-field>
+      </div>
+      <div fxFlex="100">
+        <mat-form-field fxFlexFill>
+          <mat-label>API Private Key</mat-label>
+          <input matInput placeholder="Enter your API Private Key" [(ngModel)]="Data.ApiPrivateKey">
+        </mat-form-field>
+      </div>
+      <div fxFlex="100">
+        <mat-form-field fxFlexFill>
+          <mat-label>API Passphrase</mat-label>
+          <input matInput placeholder="Enter your API Passphrase" [(ngModel)]="Data.ApiKeyPassphrase">
+        </mat-form-field>
+      </div>
+      <div fxFlex="100">
+        <mat-form-field fxFlexFill>
+          <mat-label>API Version</mat-label>
+          <input matInput placeholder="Enter your API Version" [(ngModel)]="Data.ApiVersion">
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions fxLayoutAlign="end">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="Events.TestConnectionButtonClicked()">
+      Test Connection
+    </button>
+    <button
+      style="margin-left: 10px"
+      mat-raised-button
+      color="primary"
+      (click)="onSubmit()">
+      Save
+    </button>
+    <div *ngIf="Data.Tested">
+      <span *ngIf="Data.TestResult" >Success</span><mat-icon *ngIf="Data.TestResult" color="primary">check_circle</mat-icon>
+      <mat-icon *ngIf="!Data.TestResult" color="warn">cancel</mat-icon>
+    </div>
+  </mat-card-actions>
+</mat-card>
