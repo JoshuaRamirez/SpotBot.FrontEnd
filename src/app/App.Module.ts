@@ -15,6 +15,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { LoginScreenComponent } from './Components/Screens/LoginScreen/LoginScreen.Component';
 import {MatIconModule} from "@angular/material/icon";
+import {ScreenLayoutComponent} from "./Components/Layout/ScreenLayout.Component";
+import {TrailingTradesComponent} from "./Components/Screens/TrailingTradesScreen/TrailingTrades.Component";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import {MatIconModule} from "@angular/material/icon";
     ToolbarComponent,
     ExchangeScreenComponent,
     LoginScreenComponent,
+    ScreenLayoutComponent,
+    TrailingTradesComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,8 @@ import {MatIconModule} from "@angular/material/icon";
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

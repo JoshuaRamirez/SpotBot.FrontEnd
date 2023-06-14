@@ -4,7 +4,6 @@ import {GetEncryptionKeyRequest} from "../../../Api/GetEncryptionKeyRequest";
 import {GetEncryptionKeyResource} from "../../../Resources/Gets/GetEncryptionKeyResource";
 import {Application} from "../../../Data/Application";
 import {LoginScreenService} from "./LoginScreen.Service";
-import {NavigationService} from "../../../Services/NavigationService";
 
 export class LoginScreenApi {
   private readonly _service: LoginScreenService;
@@ -35,7 +34,6 @@ export class LoginScreenApi {
 
   private whenEncryptionKeyReceived(resource: GetEncryptionKeyResource) {
     this._service.WhenEncryptionKeyReceived(resource);
-    NavigationService.NavigateToExchangeScreen();
   }
 
 }

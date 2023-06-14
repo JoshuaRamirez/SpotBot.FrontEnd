@@ -1,0 +1,36 @@
+<div class="Container">
+  <mat-card>
+    <mat-card-header class="Header">
+      <mat-card-title>Trade Setup</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="Row">
+        <mat-form-field>
+          <input matInput placeholder="Position Size" [(ngModel)]="Data.PositionSize">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Entry Price" [(ngModel)]="Data.EntryPrice">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Stop Loss Level" [(ngModel)]="Data.StopLossLevel">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Take Profit Level" [(ngModel)]="Data.TakeProfitLevel">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-select placeholder="Trade Type" [(ngModel)]="Data.TradeType">
+            <mat-option value="buy">Buy</mat-option>
+            <mat-option value="sell">Sell</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>
+

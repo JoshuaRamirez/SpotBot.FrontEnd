@@ -14,5 +14,4 @@ export class AppComponent {
     LocalStorageService.GetUserToken();
     LocalStorageService.GetEncryptionKey();
   }
-  title = 'SpotBot.WebApp';
 }

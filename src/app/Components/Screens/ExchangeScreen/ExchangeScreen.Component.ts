@@ -6,9 +6,9 @@ import {ExchangeScreenService} from "./ExchangeScreen.Service";
 
 
 @Component({
-  selector: 'app-PostExchangeResource',
-  templateUrl: './ExchangeScreen.Component.html',
-  styleUrls: ['./ExchangeScreen.Component.scss']
+  selector: 'app-exchange-screen',
+  templateUrl: './ExchangeScreen.Template.html',
+  styleUrls: ['./ExchangeScreen.Styles.scss']
 })
 export class ExchangeScreenComponent implements OnInit {
   public readonly Data: ExchangeScreenData;

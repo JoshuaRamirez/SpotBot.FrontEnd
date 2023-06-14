@@ -4,6 +4,7 @@ import {LoginScreenData} from "./LoginScreen.Data";
 import {PostUserCredentialsResource} from "../../../Resources/Posts/PostUserCredentialsResource";
 import {GetUserTokenResource} from "../../../Resources/Gets/GetUserTokenResource";
 import {Obfuscation} from "../../../Core/Obfuscation";
+import {NavigationService} from "../../../Services/NavigationService";
 
 export class LoginScreenService {
   private readonly _data: LoginScreenData;
@@ -13,6 +14,7 @@ export class LoginScreenService {
   public WhenEncryptionKeyReceived(encryptionKey: GetEncryptionKeyResource) {
     encryptionKey.Value = Obfuscation.Deobfuscate(encryptionKey.Value);
     LocalStorageService.StoreEncryptionKey(encryptionKey);
+    NavigationService.NavigateToExchangeScreen();
   }
 
   BuildPostUserCredentialsResource() {

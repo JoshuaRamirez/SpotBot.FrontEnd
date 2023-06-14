@@ -5,9 +5,9 @@ import {LoginScreenEvents} from "./LoginScreen.Events";
 import {LoginScreenService} from "./LoginScreen.Service";
 
 @Component({
-  selector: 'app-LoginScreen',
-  templateUrl: './LoginScreen.Component.html',
-  styleUrls: ['./LoginScreen.Component.scss']
+  selector: 'app-login-screen',
+  templateUrl: './LoginScreen.Template.html',
+  styleUrls: ['./LoginScreen.Styles.scss']
 })
 export class LoginScreenComponent {
   public readonly Data: LoginScreenData;

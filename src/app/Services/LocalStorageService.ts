@@ -7,13 +7,15 @@ export class LocalStorageService {
     localStorage.setItem('UserToken', JSON.stringify(userToken));
     Application.UserToken = userToken;
   }
-  public static GetUserToken(): GetUserTokenResource {
-    let userToken = new GetUserTokenResource();
+  public static GetUserToken(): GetUserTokenResource | undefined {
+    let userToken: GetUserTokenResource | undefined = undefined;
     const userTokenString = localStorage.getItem('UserToken');
     if (userTokenString) {
       userToken = JSON.parse(userTokenString);
+      if (userToken) {
+        Application.UserToken = userToken;
+      }
     }
-    Application.UserToken = userToken;
     return userToken;
   }
   public static StoreEncryptionKey(encryptionKey: GetEncryptionKeyResource): void {
