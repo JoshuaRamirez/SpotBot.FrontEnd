@@ -1,20 +1,20 @@
 import validator from "validator";
 import {ValidationResult} from "./ValidationResult";
 
-export class Validations {
+export class Validators {
 
   public static PriceValue(priceValue: string): ValidationResult {
     const value = priceValue;
-    let result = Validations.Required(value);
+    let result = Validators.Required(value);
     if (result.IsInvalid) {
       result.Message = 'Number required.'
       return result;
     }
-    result = Validations.IsNumeric(value);
+    result = Validators.IsNumeric(value);
     if (result.IsInvalid) {
       return result;
     }
-    result = Validations.DecimalPlaces(4, value);
+    result = Validators.DecimalPlaces(4, value);
     if (result.IsInvalid) {
       return result;
     }
@@ -42,7 +42,7 @@ export class Validations {
     }
     if (isDecimal) {
       const decimalValue = Number.parseFloat(value);
-      const decimalPlaces = Validations.CountDecimalPlaces(decimalValue);
+      const decimalPlaces = Validators.CountDecimalPlaces(decimalValue);
       if (decimalPlaces > maxDecimalPlaces) {
         result.Message = 'Must have 4 decimal places or less';
         result.IsValid = false;
