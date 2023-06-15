@@ -1,12 +1,8 @@
-<mat-toolbar color="primary">
-  <span>SpotBot Portfolio</span>
-  <span class="spacer"></span>
-<!--  <div class="user-section">-->
-<!--    <span class="user-info">Logged in as: {{ Data.UserName }}</span>-->
-<!--    <button class="logout-button" (click)="Handler.LogoutClicked()">Logout</button>-->
-<!--  </div>-->
-</mat-toolbar>
-
-<div style="margin-bottom: 20px"></div>
-
+<div class="bg-primary bg-opacity-75 ps-3 pt-3 pb-1 mb-0">
+  <p class="h1 text-light" href="#">SpotBot Portfolio</p>
+</div>
+<div class="bg-primary-subtle bg-opacity-50 d-flex flex-row gap-2 ps-3 pe-2 pt-2 pb-2 mb-4">
+  <button class="btn btn-sm NavButton" routerLink="/exchange"><span class="lead">Exchange</span></button>
+  <button class="btn btn-sm NavButton" routerLink="/trailing-trades"><span class="lead">Trade</span></button>
+</div>
 <router-outlet></router-outlet>
