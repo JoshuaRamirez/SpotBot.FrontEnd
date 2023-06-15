@@ -1,36 +1,62 @@
-<div class="Container">
-  <mat-card>
-    <mat-card-header class="Header">
-      <mat-card-title>Trade Setup</mat-card-title>
-    </mat-card-header>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Trade Setup</h2>
+    </div>
 
-    <mat-card-content>
-      <div class="Row">
-        <mat-form-field>
-          <input matInput placeholder="Position Size" [(ngModel)]="Data.PositionSize">
-        </mat-form-field>
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <label>Position Size</label>
+          <input type="text" class="form-control" [ngClass]="Data.Validations.PositionSize.Css" [(ngModel)]="Data.PositionSize" (change)="Interactions.PositionSizeInputChanged()">
+          <div *ngIf="Data.Validations.PositionSize.IsInvalid" class="invalid-feedback">
+            {{Data.Validations.PositionSize.Message}}
+          </div>
+        </div>
 
-        <mat-form-field>
-          <input matInput placeholder="Entry Price" [(ngModel)]="Data.EntryPrice">
-        </mat-form-field>
+        <div class="col">
+          <label>Entry Price</label>
+          <input type="text" class="form-control" [ngClass]="Data.Validations.EntryPrice.Css" [(ngModel)]="Data.EntryPrice">
+          <div *ngIf="Data.Validations.EntryPrice.IsInvalid" class="invalid-feedback">
+            {{Data.Validations.EntryPrice.Message}}
+          </div>
+        </div>
 
-        <mat-form-field>
-          <input matInput placeholder="Stop Loss Level" [(ngModel)]="Data.StopLossLevel">
-        </mat-form-field>
+        <div class="col">
+          <label>Stop Loss Level</label>
+          <input type="text" class="form-control" [ngClass]="Data.Validations.StopLossLevel.Css" [(ngModel)]="Data.StopLossLevel">
+          <div *ngIf="Data.Validations.StopLossLevel.IsInvalid" class="invalid-feedback">
+            {{Data.Validations.StopLossLevel.Message}}
+          </div>
+        </div>
 
-        <mat-form-field>
-          <input matInput placeholder="Take Profit Level" [(ngModel)]="Data.TakeProfitLevel">
-        </mat-form-field>
+        <div class="col">
+          <label>Take Profit Level</label>
+          <input type="text" class="form-control" [ngClass]="Data.Validations.TakeProfitLevel.Css" [(ngModel)]="Data.TakeProfitLevel">
+          <div *ngIf="Data.Validations.TakeProfitLevel.IsInvalid" class="invalid-feedback">
+            {{Data.Validations.TakeProfitLevel.Message}}
+          </div>
+        </div>
 
-        <mat-form-field>
-          <mat-select placeholder="Trade Type" [(ngModel)]="Data.TradeType">
-            <mat-option value="buy">Buy</mat-option>
-            <mat-option value="sell">Sell</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <div class="col">
+          <label>Trade Type</label>
+          <select class="form-select" [ngClass]="Data.Validations.TradeType.Css"  [(ngModel)]="Data.TradeType">
+            <option value="buy">Buy</option>
+            <option value="sell">Sell</option>
+          </select>
+          <div *ngIf="Data.Validations.TradeType.IsInvalid" class="invalid-feedback">
+            {{Data.Validations.TradeType.Message}}
+          </div>
+        </div>
       </div>
-
-    </mat-card-content>
-  </mat-card>
+      <hr>
+      <div class="row mt-4">
+        <div class="col">
+          <div class="d-flex flex-row-reverse">
+            <button class="btn btn-primary">Execute</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-

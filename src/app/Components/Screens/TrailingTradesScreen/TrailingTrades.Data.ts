@@ -1,3 +1,5 @@
+import {TrailingTradesValidations} from "./TrailingTrades.Validations";
+
 export class TrailingTradesData {
   constructor() {
         this.PositionSize = '';
@@ -5,10 +7,14 @@ export class TrailingTradesData {
         this.StopLossLevel = '';
         this.TakeProfitLevel = '';
         this.TradeType = '';
+        this.Validations = new TrailingTradesValidations(this);
     }
-  PositionSize: string
-  EntryPrice: string
-  StopLossLevel: string
-  TakeProfitLevel: string
-  TradeType: string
+  public PositionSize: string
+  public EntryPrice: string
+  public StopLossLevel: string
+  public TakeProfitLevel: string
+  public TradeType: string
+  public Validations: TrailingTradesValidations;
+
+
 }
