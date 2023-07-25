@@ -1,6 +1,6 @@
 import {ScreenLayoutData} from "./ScreenLayout.Data";
 
-export class ScreenLayoutService {
+export class ScreenLayoutBehaviors {
   private _data: ScreenLayoutData;
   constructor(data: ScreenLayoutData) {
       this._data = data;

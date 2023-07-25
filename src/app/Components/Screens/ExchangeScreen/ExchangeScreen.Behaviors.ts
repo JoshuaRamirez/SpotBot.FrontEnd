@@ -3,13 +3,16 @@ import {ExchangeScreenData} from "./ExchangeScreen.Data";
 import {PostExchangeResource} from "../../../Resources/Posts/PostExchangeResource";
 import {Application} from "../../../Data/Application";
 import {Encryption} from "../../../Core/Encryption";
+import {IComponent} from "../../../Core/IComponent";
 
-export class ExchangeScreenService {
+export class ExchangeScreenBehaviors {
   private readonly _data: ExchangeScreenData;
-  constructor(exchangeScreenData: ExchangeScreenData) {
+  private readonly _component: IComponent;
+  constructor(exchangeScreenData: ExchangeScreenData, component: IComponent) {
     this._data = exchangeScreenData;
+    this._component = component;
   }
-  public WhenExchangeResourceReceived(resource: GetExchangeResource) {
+  public UpdateDisplayedExchangeData(resource: GetExchangeResource) {
     const encryptionKey = Application.EncryptionKey.Value;
     if (!encryptionKey) {
       throw new Error("EncryptionKey.Value is null or undefined.")
@@ -24,6 +27,7 @@ export class ExchangeScreenService {
     this._data.ApiVersion = resource.ApiVersion;
     this._data.Id = resource.Id;
     Application.ExchangeSecrets = resource;
+    this._component.DetectChanges();
   }
 
   public BuildPostExchangeResource() {
@@ -44,7 +48,7 @@ export class ExchangeScreenService {
     return exchange;
   }
 
-  public WhenExchangeConnectionTestPassed() {
+  public PassConnectionTest() {
     this._data.Tested = true;
     this._data.TestResult = true;
   }

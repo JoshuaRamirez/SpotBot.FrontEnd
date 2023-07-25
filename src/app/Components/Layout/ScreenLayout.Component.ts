@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {ScreenLayoutData} from "./ScreenLayout.Data";
-import {ScreenLayoutHandler} from "./ScreenLayout.Handler";
-import {ScreenLayoutService} from "./ScreenLayout.Service";
+import {ScreenLayoutInteractions} from "./ScreenLayout.Interactions";
+import {ScreenLayoutBehaviors} from "./ScreenLayout.Behaviors";
 
 @Component({
   selector: 'app-screen-layout',
@@ -10,11 +10,11 @@ import {ScreenLayoutService} from "./ScreenLayout.Service";
 })
 export class ScreenLayoutComponent {
   public readonly Data: ScreenLayoutData;
-  public readonly Handler: ScreenLayoutHandler;
-  private readonly service: ScreenLayoutService;
+  public readonly Handler: ScreenLayoutInteractions;
+  private readonly _behaviors: ScreenLayoutBehaviors;
   constructor() {
     this.Data = new ScreenLayoutData();
-    this.service = new ScreenLayoutService(this.Data);
-    this.Handler = new ScreenLayoutHandler(this.service);
+    this._behaviors = new ScreenLayoutBehaviors(this.Data);
+    this.Handler = new ScreenLayoutInteractions(this._behaviors);
   }
 }

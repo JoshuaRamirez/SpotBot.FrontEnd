@@ -1,24 +1,28 @@
-import {TradeRowServices} from "./TradeRow.Services";
+import {TradeRowBehaviors} from "./TradeRow.Behaviors";
 
 export class TradeRowInteractions {
-  private readonly _services: TradeRowServices;
-  constructor(services: TradeRowServices) {
-    this._services = services;
+  private readonly _behaviors: TradeRowBehaviors;
+  constructor(services: TradeRowBehaviors) {
+    this._behaviors = services;
   }
 
-  public PositionSizeChanged(): void {
-    this._services.WhenPositionSizeChanged();
+  public PositionSizeTextBoxChanged(): void {
+    this._behaviors.MarkPositionSizeDirtyIfChanged();
   }
-  public EntryPriceChanged(): void {
-    this._services.WhenEntryPriceChanged();
+  public EntryPriceTextBoxChanged(): void {
+    this._behaviors.MarkEntryPriceDirtyIfChanged();
   }
-  public StopLossLevelChanged(): void {
-    this._services.WhenStopLossLevelChanged();
+  public StopLossLevelTextBoxChanged(): void {
+    this._behaviors.MarkStopLossLevelDirtyIfChanged();
   }
-  public TakeProfitLevelChanged(): void {
-    this._services.WhenTakeProfitLevelChanged();
+  public TakeProfitLevelTextBoxChanged(): void {
+    this._behaviors.MarkTakeProfitLevelDirtyIfChanged();
   }
-  public TradeTypeChanged(): void {
-    this._services.WhenTradeTypeChanged();
+  public TradeTypeTextBoxChanged(): void {
+    this._behaviors.MarkTradeTypeDirtyIfChanged();
+  }
+
+  public DeleteButtonClicked() {
+    this._behaviors.Delete();
   }
 }

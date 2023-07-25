@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './App.Routing.Module';
+import { AppRouting } from './App.Routing';
 import { AppComponent } from './App.Component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from "@angular/material/button";
@@ -8,7 +8,7 @@ import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatCardModule} from "@angular/material/card";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import { ToolbarComponent } from './Toolbar/toolbar.component';
+import { ToolbarComponent } from './Toolbar/Toolbar.Component';
 import { ExchangeScreenComponent } from './Components/Screens/ExchangeScreen/ExchangeScreen.Component';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -32,7 +32,7 @@ import {TradeRowComponent} from "./Components/Screens/TrailingTradesScreen/Trade
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AppRouting,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatCardModule,

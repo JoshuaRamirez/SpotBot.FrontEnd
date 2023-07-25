@@ -60,7 +60,7 @@ export class Validators {
     return 0;
   }
 
-  static IsNumeric(value: string) : ValidationResult {
+  public static IsNumeric(value: string) : ValidationResult {
     const result = new ValidationResult();
     result.IsValid = true;
     const isNumeric = validator.isNumeric(value);

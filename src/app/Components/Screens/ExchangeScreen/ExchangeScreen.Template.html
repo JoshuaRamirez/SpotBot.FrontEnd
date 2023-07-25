@@ -34,14 +34,14 @@
     <button
       mat-raised-button
       color="primary"
-      (click)="Events.TestConnectionButtonClicked()">
+      (click)="Interactions.TestConnectionButtonClicked()">
       Test Connection
     </button>
     <button
       style="margin-left: 10px"
       mat-raised-button
       color="primary"
-      (click)="onSubmit()">
+      (click)="Interactions.SaveButtonClicked()">
       Save
     </button>
     <div *ngIf="Data.Tested">

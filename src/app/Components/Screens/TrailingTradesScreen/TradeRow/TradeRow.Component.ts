@@ -1,7 +1,8 @@
-import {Component} from "@angular/core";
+import {Component, Input} from "@angular/core";
 import {TradeRowData} from "./TradeRow.Data";
 import {TradeRowInteractions} from "./TradeRow.Interactions";
-import {TradeRowServices} from "./TradeRow.Services";
+import {TradeRowBehaviors} from "./TradeRow.Behaviors";
+import {Order} from "../../../../Data/Order";
 
 @Component({
   selector: 'app-trade-row',
@@ -10,10 +11,14 @@ import {TradeRowServices} from "./TradeRow.Services";
 export class TradeRowComponent {
   public readonly Data: TradeRowData;
   public readonly Interactions: TradeRowInteractions;
-  private readonly _services: TradeRowServices;
-  constructor() {
+  private readonly _behaviors: TradeRowBehaviors;
+
+  @Input() public set Order(value: Order) {
+    this.Data.Order = value;
+  }
+  public constructor() {
     this.Data = new TradeRowData();
-    this._services = new TradeRowServices(this.Data);
-    this.Interactions = new TradeRowInteractions(this._services)
+    this._behaviors = new TradeRowBehaviors(this.Data);
+    this.Interactions = new TradeRowInteractions(this._behaviors)
   }
 }

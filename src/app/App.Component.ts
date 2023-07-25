@@ -5,8 +5,8 @@ import {LocalStorageService} from "./Services/LocalStorageService";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './App.Component.html',
-  styleUrls: ['./App.Component.scss'],
+  templateUrl: './App.Template.html',
+  styleUrls: ['./App.Styles.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {

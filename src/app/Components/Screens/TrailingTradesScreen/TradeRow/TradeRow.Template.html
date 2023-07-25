@@ -1,39 +1,40 @@
-<div class="row">
-  <div class="col">
+<div class="d-flex flex-wrap">
+
+  <div class="p-2 flex-grow-1 app-input-field">
     <label>Position Size</label>
-    <input type="text" class="form-control" [ngClass]="Data.Validations.PositionSize.Css" [(ngModel)]="Data.PositionSize" (change)="Interactions.PositionSizeChanged()">
+    <input type="text" class="form-control" [ngClass]="Data.Validations.PositionSize.Css" [(ngModel)]="Data.Order.PositionSize" (change)="Interactions.PositionSizeTextBoxChanged()">
     <div *ngIf="Data.Validations.PositionSize.IsError" class="invalid-feedback">
       {{Data.Validations.PositionSize.Message}}
     </div>
   </div>
 
-  <div class="col">
+  <div class="p-2 flex-grow-1 app-input-field">
     <label>Entry Price</label>
-    <input type="text" class="form-control" [ngClass]="Data.Validations.EntryPrice.Css" [(ngModel)]="Data.EntryPrice" (change)="Interactions.EntryPriceChanged()">
+    <input type="text" class="form-control" [ngClass]="Data.Validations.EntryPrice.Css" [(ngModel)]="Data.Order.EntryPrice" (change)="Interactions.EntryPriceTextBoxChanged()">
     <div *ngIf="Data.Validations.EntryPrice.IsInvalid" class="invalid-feedback">
       {{Data.Validations.EntryPrice.Message}}
     </div>
   </div>
 
-  <div class="col">
+  <div class="p-2 flex-grow-1 app-input-field">
     <label>Stop Loss Level</label>
-    <input type="text" class="form-control" [ngClass]="Data.Validations.StopLossLevel.Css" [(ngModel)]="Data.StopLossLevel" (change)="Interactions.StopLossLevelChanged()">
+    <input type="text" class="form-control" [ngClass]="Data.Validations.StopLossLevel.Css" [(ngModel)]="Data.Order.StopLossLevel" (change)="Interactions.StopLossLevelTextBoxChanged()">
     <div *ngIf="Data.Validations.StopLossLevel.IsInvalid" class="invalid-feedback">
       {{Data.Validations.StopLossLevel.Message}}
     </div>
   </div>
 
-  <div class="col">
+  <div class="p-2 flex-grow-1 app-input-field">
     <label>Take Profit Level</label>
-    <input type="text" class="form-control" [ngClass]="Data.Validations.TakeProfitLevel.Css" [(ngModel)]="Data.TakeProfitLevel" (change)="Interactions.TakeProfitLevelChanged()">
+    <input type="text" class="form-control" [ngClass]="Data.Validations.TakeProfitLevel.Css" [(ngModel)]="Data.Order.TakeProfitLevel" (change)="Interactions.TakeProfitLevelTextBoxChanged()">
     <div *ngIf="Data.Validations.TakeProfitLevel.IsInvalid" class="invalid-feedback">
       {{Data.Validations.TakeProfitLevel.Message}}
     </div>
   </div>
 
-  <div class="col">
+  <div class="p-2 flex-grow-1 app-input-field">
     <label>Trade Type</label>
-    <select class="form-select" [ngClass]="Data.Validations.TradeType.Css"  [(ngModel)]="Data.TradeType" (change)="Interactions.TradeTypeChanged()">
+    <select class="form-select" [ngClass]="Data.Validations.TradeType.Css"  [(ngModel)]="Data.Order.TradeType" (change)="Interactions.TradeTypeTextBoxChanged()">
       <option value="buy">Buy</option>
       <option value="sell">Sell</option>
     </select>
@@ -41,4 +42,11 @@
       {{Data.Validations.TradeType.Message}}
     </div>
   </div>
+
+  <div class="flex-shrink-1 align-self-end p-2">
+    <i class="bi-x-square-fill text-warning" (click)="Interactions.DeleteButtonClicked()"></i>
+  </div>
+
 </div>
+
+

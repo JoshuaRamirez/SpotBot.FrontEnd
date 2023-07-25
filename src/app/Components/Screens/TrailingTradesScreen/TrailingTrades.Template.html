@@ -1,15 +1,33 @@
-<div class="container">
-  <div class="card">
-    <div class="card-header bg-body-tertiary">
-      <p class="card-title blockquote mb-0">Trade Setup</p>
-    </div>
-    <div class="card-body">
-      <app-trade-row></app-trade-row>
-      <hr>
-      <div class="row mt-4">
-        <div class="col">
-          <div class="d-flex flex-row-reverse">
-            <button class="btn btn-primary">Execute</button>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header bg-body-tertiary">
+          <p class="card-title blockquote mb-0 lead">Trade Setup</p>
+        </div>
+        <div class="card-body">
+          <div class="container-xxl">
+            <div *ngFor="let order of Data.Orders" class="row">
+              <div class="col">
+                <app-trade-row [Order]="order"></app-trade-row>
+                <hr/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="d-flex flex-row-reverse ms-auto px-2">
+
+                </div>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col">
+                <div class="d-flex flex-row-reverse">
+                  <i (click)="Interactions.AddButtonClicked()" class="bi-plus-square-fill text-primary"></i>
+                  <button class="btn btn-primary">Execute</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

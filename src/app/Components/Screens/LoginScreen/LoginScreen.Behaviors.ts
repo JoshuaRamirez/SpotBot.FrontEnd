@@ -6,7 +6,7 @@ import {GetUserTokenResource} from "../../../Resources/Gets/GetUserTokenResource
 import {Obfuscation} from "../../../Core/Obfuscation";
 import {NavigationService} from "../../../Services/NavigationService";
 
-export class LoginScreenService {
+export class LoginScreenBehaviors {
   private readonly _data: LoginScreenData;
   constructor(loginScreenData: LoginScreenData) {
     this._data = loginScreenData;
@@ -17,14 +17,14 @@ export class LoginScreenService {
     NavigationService.NavigateToExchangeScreen();
   }
 
-  BuildPostUserCredentialsResource() {
+  public BuildPostUserCredentialsResource() {
     const resource = new PostUserCredentialsResource();
     resource.UserName = this._data.UserName;
     resource.Password = this._data.Password;
     return resource;
   }
 
-  WhenUserTokenResourceReceived(userToken: GetUserTokenResource) {
+  public WhenUserTokenResourceReceived(userToken: GetUserTokenResource) {
     const userId = userToken.UserId;
     if (!userId) {
       throw new Error("UserToken.UserId is null or undefined.")

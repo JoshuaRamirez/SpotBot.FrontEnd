@@ -1,5 +1,5 @@
-  export class ValidationResult {
-  constructor() {
+export class ValidationResult {
+  public constructor() {
     this._isValid = false;
     this.Message = '';
     this.IsDirty = false;
