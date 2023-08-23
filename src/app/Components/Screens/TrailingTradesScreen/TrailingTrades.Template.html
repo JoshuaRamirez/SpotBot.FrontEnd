@@ -1,36 +1,39 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col">
-      <div class="card">
-        <div class="card-header bg-body-tertiary">
-          <p class="card-title blockquote mb-0 lead">Trade Setup</p>
-        </div>
-        <div class="card-body">
+
+      <mat-card style="margin: 20px; padding: 20px;">
+        <mat-card-title style="margin-bottom: 20px">
+
+
+          <div class="d-flex justify-content-between">
+            <p class="card-title blockquote mb-0 lead">Trade Setup</p>
+            <i (click)="Interactions.AddButtonClicked()" class="bi-plus-square-fill text-primary"></i>
+          </div>
+
+        </mat-card-title>
+        <mat-card-content fxLayout="column" fxLayoutAlign="start">
           <div class="container-xxl">
             <div *ngFor="let order of Data.Orders" class="row">
               <div class="col">
                 <app-trade-row [Order]="order"></app-trade-row>
-                <hr/>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <div class="d-flex flex-row-reverse ms-auto px-2">
-
-                </div>
-              </div>
-            </div>
-            <div class="row mt-4">
-              <div class="col">
-                <div class="d-flex flex-row-reverse">
-                  <i (click)="Interactions.AddButtonClicked()" class="bi-plus-square-fill text-primary"></i>
-                  <button class="btn btn-primary">Execute</button>
-                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </mat-card-content>
+        <mat-card-actions fxLayoutAlign="end">
+          <div class="row mt-4">
+            <div class="col">
+              <div class="d-flex flex-row-reverse">
+                <button mat-raised-button color="primary">Execute</button>
+              </div>
+            </div>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+
+
+
     </div>
   </div>
 </div>

@@ -19,6 +19,10 @@ import {ScreenLayoutComponent} from "./Components/Layout/ScreenLayout.Component"
 import {TrailingTradesComponent} from "./Components/Screens/TrailingTradesScreen/TrailingTrades.Component";
 import {MatSelectModule} from "@angular/material/select";
 import {TradeRowComponent} from "./Components/Screens/TrailingTradesScreen/TradeRow/TradeRow.Component";
+import {TextBoxComponent} from "./Components/Controls/TextBox/TextBox.Component";
+import {TextBoxBindDirective} from "./Components/Controls/Core/TextBoxBindDirective";
+import {DropDownBindDirective} from "./Components/Controls/Core/DropDownBindDirective";
+import {DropDownComponent} from "./Components/Controls/DropDown/DropDown.Component";
 
 @NgModule({
   declarations: [
@@ -29,6 +33,10 @@ import {TradeRowComponent} from "./Components/Screens/TrailingTradesScreen/Trade
     ScreenLayoutComponent,
     TrailingTradesComponent,
     TradeRowComponent,
+    TextBoxComponent,
+    TextBoxBindDirective,
+    DropDownBindDirective,
+    DropDownComponent
   ],
   imports: [
     BrowserModule,

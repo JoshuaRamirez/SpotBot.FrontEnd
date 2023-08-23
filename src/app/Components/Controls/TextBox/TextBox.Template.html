@@ -1,0 +1,5 @@
+<mat-form-field>
+  <mat-label>{{Label}}</mat-label>
+  <input matInput [formControl]="TextBoxFormControl" [errorStateMatcher]="TextBoxErrorStateMatcher" [placeholder]="Placeholder" [type]="Type" [(Bind)]="Value" >
+  <mat-error *ngIf="TextBoxFormControl.hasError('IsInvalid')">{{Error}}</mat-error>
+</mat-form-field>

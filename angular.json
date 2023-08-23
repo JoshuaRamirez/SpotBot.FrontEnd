@@ -19,7 +19,7 @@
           "options": {
             "outputPath": "dist/spot-bot.web-app",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "main": "src/Main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -33,7 +33,12 @@
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/Main.Styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "crypto-js",
+              "buffer",
+              "validator"
+            ]
           },
           "configurations": {
             "production": {
@@ -95,7 +100,7 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
+              "src/app/App.Styles.scss"
             ],
             "scripts": []
           }

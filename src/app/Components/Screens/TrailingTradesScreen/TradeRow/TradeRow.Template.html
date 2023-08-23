@@ -1,51 +1,64 @@
-<div class="d-flex flex-wrap">
+<div class="row row-cols-sm-auto g-3 align-items-center">
 
-  <div class="p-2 flex-grow-1 app-input-field">
-    <label>Position Size</label>
-    <input type="text" class="form-control" [ngClass]="Data.Validations.PositionSize.Css" [(ngModel)]="Data.Order.PositionSize" (change)="Interactions.PositionSizeTextBoxChanged()">
-    <div *ngIf="Data.Validations.PositionSize.IsError" class="invalid-feedback">
-      {{Data.Validations.PositionSize.Message}}
-    </div>
+  <div class="col-12">
+    <app-text-box
+      [Label]="'Position Size'"
+      [Placeholder]="'Enter your position size'"
+      [Masked]="false"
+      [IsValid]="Data.Validations.PositionSize.IsValid"
+      [Error]="Data.Validations.PositionSize.Message"
+      [(Bind)]="Data.Order.PositionSize">
+    </app-text-box>
   </div>
 
-  <div class="p-2 flex-grow-1 app-input-field">
-    <label>Entry Price</label>
-    <input type="text" class="form-control" [ngClass]="Data.Validations.EntryPrice.Css" [(ngModel)]="Data.Order.EntryPrice" (change)="Interactions.EntryPriceTextBoxChanged()">
-    <div *ngIf="Data.Validations.EntryPrice.IsInvalid" class="invalid-feedback">
-      {{Data.Validations.EntryPrice.Message}}
-    </div>
+  <div class="col-12">
+    <app-text-box
+      [Label]="'Entry Price'"
+      [Placeholder]="'Enter your entry price'"
+      [(ngModel)]="Data.Order.EntryPrice"
+      [IsValid]="Data.Validations.EntryPrice.IsValid"
+      [Error]="Data.Validations.EntryPrice.Message"
+      [(Bind)]="Data.Order.EntryPrice">
+    </app-text-box>
   </div>
 
-  <div class="p-2 flex-grow-1 app-input-field">
-    <label>Stop Loss Level</label>
-    <input type="text" class="form-control" [ngClass]="Data.Validations.StopLossLevel.Css" [(ngModel)]="Data.Order.StopLossLevel" (change)="Interactions.StopLossLevelTextBoxChanged()">
-    <div *ngIf="Data.Validations.StopLossLevel.IsInvalid" class="invalid-feedback">
-      {{Data.Validations.StopLossLevel.Message}}
-    </div>
+  <div class="col-12">
+    <app-text-box
+      [Label]="'Stop Loss Level'"
+      [Placeholder]="'Enter your stop loss level'"
+      [(ngModel)]="Data.Order.StopLossLevel"
+      [IsValid]="Data.Validations.StopLossLevel.IsValid"
+      [Error]="Data.Validations.StopLossLevel.Message"
+      [(Bind)]="Data.Order.StopLossLevel">
+    </app-text-box>
   </div>
 
-  <div class="p-2 flex-grow-1 app-input-field">
-    <label>Take Profit Level</label>
-    <input type="text" class="form-control" [ngClass]="Data.Validations.TakeProfitLevel.Css" [(ngModel)]="Data.Order.TakeProfitLevel" (change)="Interactions.TakeProfitLevelTextBoxChanged()">
-    <div *ngIf="Data.Validations.TakeProfitLevel.IsInvalid" class="invalid-feedback">
-      {{Data.Validations.TakeProfitLevel.Message}}
-    </div>
+  <div class="col-12">
+    <app-text-box
+      [Label]="'Take Profit Level'"
+      [Placeholder]="'Enter your take profit level'"
+      [(ngModel)]="Data.Order.TakeProfitLevel"
+      [IsValid]="Data.Validations.TakeProfitLevel.IsValid"
+      [Error]="Data.Validations.TakeProfitLevel.Message"
+      [(Bind)]="Data.Order.TakeProfitLevel">
+    </app-text-box>
   </div>
 
-  <div class="p-2 flex-grow-1 app-input-field">
-    <label>Trade Type</label>
-    <select class="form-select" [ngClass]="Data.Validations.TradeType.Css"  [(ngModel)]="Data.Order.TradeType" (change)="Interactions.TradeTypeTextBoxChanged()">
-      <option value="buy">Buy</option>
-      <option value="sell">Sell</option>
-    </select>
-    <div *ngIf="Data.Validations.TradeType.IsInvalid" class="invalid-feedback">
-      {{Data.Validations.TradeType.Message}}
-    </div>
+  <div class="col-12">
+    <app-drop-down
+      [Label]="'Trade Type'"
+      [Placeholder]="'Select your symbol'"
+      [Options]="['Buy', 'Sell']"
+      [IsValid]="Data.Validations.TradeType.IsValid"
+      [Error]="Data.Validations.TradeType.Message"
+      [(Bind)]="Data.Order.TradeType">
+    </app-drop-down>
   </div>
 
-  <div class="flex-shrink-1 align-self-end p-2">
-    <i class="bi-x-square-fill text-warning" (click)="Interactions.DeleteButtonClicked()"></i>
+  <div class="col-12">
+    <i class="bi bi-x-square-fill text-warning" (click)="Interactions.DeleteButtonClicked()"></i>
   </div>
+
 
 </div>
 

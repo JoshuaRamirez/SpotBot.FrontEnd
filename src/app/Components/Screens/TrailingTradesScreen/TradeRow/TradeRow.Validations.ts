@@ -19,6 +19,7 @@ export class TradeRowValidations {
   }
   public get PositionSize(): ValidationResult {
     const result = Validators.PriceValue(this._order.PositionSize);
+    console.log(`PositionSize Valid: ${result.IsValid}`);
     this.positionSizeValidationResult.IsValid = result.IsValid;
     this.positionSizeValidationResult.Message = result.Message;
     return this.positionSizeValidationResult;
