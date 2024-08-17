@@ -1,4 +1,4 @@
-export class GetEncryptionKeyResource {
+export class EncryptionKeyResource {
   constructor() {
     this.Id = 0
     this.UserId = 0

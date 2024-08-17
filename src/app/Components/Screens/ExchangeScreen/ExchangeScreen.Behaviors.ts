@@ -1,6 +1,6 @@
-import {GetExchangeResource} from "../../../Resources/Gets/GetExchangeResource";
+import {GetExchangeResponse} from "../../../Api/GetExchange/GetExchangeResponse";
+import {ExchangeResource} from "../../../Resources/ExchangeResource";
 import {ExchangeScreenData} from "./ExchangeScreen.Data";
-import {PostExchangeResource} from "../../../Resources/Posts/PostExchangeResource";
 import {Application} from "../../../Data/Application";
 import {Encryption} from "../../../Core/Encryption";
 import {IComponent} from "../../../Core/IComponent";
@@ -12,7 +12,7 @@ export class ExchangeScreenBehaviors {
     this._data = exchangeScreenData;
     this._component = component;
   }
-  public UpdateDisplayedExchangeData(resource: GetExchangeResource) {
+  public UpdateDisplayedExchangeData(resource: GetExchangeResponse) {
     const encryptionKey = Application.EncryptionKey.Value;
     if (!encryptionKey) {
       throw new Error("EncryptionKey.Value is null or undefined.")
@@ -39,7 +39,7 @@ export class ExchangeScreenBehaviors {
     const encryptedApiKeyPassphrase = encryption.Encrypt(this._data.ApiKeyPassphrase);
     const encryptedApiPrivateKey = encryption.Encrypt(this._data.ApiPrivateKey);
     const encryptedApiPublicKey = encryption.Encrypt(this._data.ApiPublicKey);
-    const exchange = new PostExchangeResource();
+    const exchange = new ExchangeResource();
     exchange.ApiKeyPassphrase = encryptedApiKeyPassphrase;
     exchange.ApiPrivateKey = encryptedApiPrivateKey;
     exchange.ApiPublicKey = encryptedApiPublicKey;

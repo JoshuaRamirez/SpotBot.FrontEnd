@@ -1,14 +1,14 @@
-import {GetUserTokenResource} from "../Resources/Gets/GetUserTokenResource";
+import {UserTokenResource} from "../Resources/UserTokenResource";
 import {Application} from "../Data/Application";
-import {GetEncryptionKeyResource} from "../Resources/Gets/GetEncryptionKeyResource";
+import {EncryptionKeyResource} from "../Resources/EncryptionKeyResource";
 
 export class LocalStorageService {
-  public static StoreUserToken(userToken: GetUserTokenResource) {
+  public static StoreUserToken(userToken: UserTokenResource) {
     localStorage.setItem('UserToken', JSON.stringify(userToken));
     Application.UserToken = userToken;
   }
-  public static GetUserToken(): GetUserTokenResource | undefined {
-    let userToken: GetUserTokenResource | undefined = undefined;
+  public static GetUserToken(): UserTokenResource | undefined {
+    let userToken: UserTokenResource | undefined = undefined;
     const userTokenString = localStorage.getItem('UserToken');
     if (userTokenString) {
       userToken = JSON.parse(userTokenString);
@@ -18,13 +18,13 @@ export class LocalStorageService {
     }
     return userToken;
   }
-  public static StoreEncryptionKey(encryptionKey: GetEncryptionKeyResource): void {
+  public static StoreEncryptionKey(encryptionKey: EncryptionKeyResource): void {
     const value = JSON.stringify(encryptionKey);
     localStorage.setItem('EncryptionKey', value);
     Application.EncryptionKey = encryptionKey;
   }
-  public static GetEncryptionKey(): GetEncryptionKeyResource {
-    let encryptionKey = new GetEncryptionKeyResource()
+  public static GetEncryptionKey(): EncryptionKeyResource {
+    let encryptionKey = new EncryptionKeyResource()
     const encryptionKeyString = localStorage.getItem('EncryptionKey');
     if (encryptionKeyString) {
       encryptionKey = JSON.parse(encryptionKeyString);

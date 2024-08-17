@@ -1,4 +1,4 @@
-export class GetUserTokenResource {
+export class UserTokenResource {
   constructor() {
     this.Id = 0;
     this.UserId = 0;

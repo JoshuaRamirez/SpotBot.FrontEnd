@@ -1,10 +1,10 @@
 import {Application} from "../../../Data/Application";
-import {GetUserTokenResource} from "../../../Resources/Gets/GetUserTokenResource";
+import {UserTokenResource} from "../../../Resources/UserTokenResource";
 import {LocalStorageService} from "../../../Services/LocalStorageService";
-import {GetEncryptionKeyResource} from "../../../Resources/Gets/GetEncryptionKeyResource";
+import {EncryptionKeyResource} from "../../../Resources/EncryptionKeyResource";
 import {LoginScreenApi} from "./LoginScreen.Api";
 import {LoginScreenData} from "./LoginScreen.Data";
-import {PostUserCredentialsResource} from "../../../Resources/Posts/PostUserCredentialsResource";
+import {PostUserCredentialsRequest} from "../../../Api/PostUserCredentials/PostUserCredentialsRequest";
 import {Obfuscation} from "../../../Core/Obfuscation";
 import {NavigationService} from "../../../Services/NavigationService";
 
@@ -25,19 +25,19 @@ export class LoginScreenBehaviors {
     await NavigationService.NavigateToExchangeScreen();
   }
 
-  private async initializeLogin(): Promise<GetUserTokenResource> {
-    const resource = new PostUserCredentialsResource();
+  private async initializeLogin(): Promise<UserTokenResource> {
+    const resource = new PostUserCredentialsRequest();
     resource.UserName = this._data.UserName;
     resource.Password = this._data.Password;
     const userToken = await this._api.PostUserCredentials(resource);
     return userToken;
   }
-  private storeEncryptionKey(encryptionKey: GetEncryptionKeyResource) {
+  private storeEncryptionKey(encryptionKey: EncryptionKeyResource) {
     encryptionKey.Value = Obfuscation.Deobfuscate(encryptionKey.Value);
     LocalStorageService.StoreEncryptionKey(encryptionKey);
   }
 
-  private storeUserToken(userToken: GetUserTokenResource) {
+  private storeUserToken(userToken: UserTokenResource) {
     const userId = userToken.UserId;
     if (!userId) {
       throw new Error("UserToken.UserId is null or undefined.")

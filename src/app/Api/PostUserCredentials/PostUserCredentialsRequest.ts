@@ -1,4 +1,4 @@
-export class PostUserCredentialsResource {
+export class PostUserCredentialsRequest {
   constructor() {
     this.UserName = '';
     this.Password = '';

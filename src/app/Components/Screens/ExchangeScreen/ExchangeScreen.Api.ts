@@ -1,29 +1,29 @@
-import {GetExchangeRequest} from "../../../Api/GetExchangeRequest";
-import {PostExchangeRequest} from "../../../Api/PostExchangeRequest";
-import {PatchExchangeRequest} from "../../../Api/PatchExchangeRequest";
+import {GetExchange} from "../../../Api/GetExchange/GetExchange";
+import {PostExchange} from "../../../Api/PostExchange/PostExchange";
+import {PatchExchange} from "../../../Api/PatchExchange/PatchExchange";
 import {Application} from "../../../Data/Application";
-import {GetExchangeResource} from "../../../Resources/Gets/GetExchangeResource";
+import {GetExchangeResponse} from "../../../Api/GetExchange/GetExchangeResponse";
 import {ExchangeScreenBehaviors} from "./ExchangeScreen.Behaviors";
-import {GetAccountsRequest} from "../../../Api/GetAccountsRequest";
-import {GetAccountsResource} from "../../../Resources/Gets/GetAccountsResource";
+import {GetAccounts} from "../../../Api/GetAccounts/GetAccounts";
+import {AccountsResource} from "../../../Resources/AccountsResource";
 
 export class ExchangeScreenApi {
-  private readonly _getExchangeRequest: GetExchangeRequest;
-  private readonly _postExchangeRequest: PostExchangeRequest;
-  private readonly _patchExchangeRequest: PatchExchangeRequest;
-  private readonly _getAccountsRequest: GetAccountsRequest;
+  private readonly _getExchange: GetExchange;
+  private readonly _postExchange: PostExchange;
+  private readonly _patchExchange: PatchExchange;
+  private readonly _getAccounts: GetAccounts;
   private readonly _behaviors: ExchangeScreenBehaviors;
 
   constructor(behaviors: ExchangeScreenBehaviors) {
     this._behaviors = behaviors;
-    this._getExchangeRequest = new GetExchangeRequest();
-    this._postExchangeRequest = new PostExchangeRequest();
-    this._patchExchangeRequest = new PatchExchangeRequest();
-    this._getAccountsRequest = new GetAccountsRequest();
-    this._getExchangeRequest.$Response.subscribe(this.exchangeReceived.bind(this));
-    this._postExchangeRequest.$Response.subscribe(this.saveSucceeded.bind(this));
-    this._patchExchangeRequest.$Response.subscribe(this.saveSucceeded.bind(this));
-    this._getAccountsRequest.$Response.subscribe(this.whenAccountsReceived.bind(this));
+    this._getExchange = new GetExchange();
+    this._postExchange = new PostExchange();
+    this._patchExchange = new PatchExchange();
+    this._getAccounts = new GetAccounts();
+    this._getExchange.$Response.subscribe(this.exchangeReceived.bind(this));
+    this._postExchange.$Response.subscribe(this.saveSucceeded.bind(this));
+    this._patchExchange.$Response.subscribe(this.saveSucceeded.bind(this));
+    this._getAccounts.$Response.subscribe(this.whenAccountsReceived.bind(this));
   }
 
   public Load(): void {
@@ -32,7 +32,7 @@ export class ExchangeScreenApi {
       throw new Error("UserToken.UserId is null or undefined.")
     }
     const userIdString = userId.toString();
-    this._getExchangeRequest.Send(userIdString);
+    this._getExchange.Send(userIdString);
   }
 
   public Save(): void {
@@ -43,9 +43,9 @@ export class ExchangeScreenApi {
     }
     const userIdString = userId.toString();
     if (resource.Id) {
-      this._patchExchangeRequest.Send(resource, userIdString);
+      this._patchExchange.Send(resource, userIdString);
     } else {
-      this._postExchangeRequest.Send(resource, userIdString);
+      this._postExchange.Send(resource, userIdString);
     }
   }
 
@@ -55,10 +55,10 @@ export class ExchangeScreenApi {
       throw new Error("UserToken.UserId is null or undefined.")
     }
     const userIdString = userId.toString();
-    this._getAccountsRequest.Send(userIdString);
+    this._getAccounts.Send(userIdString);
   }
 
-  private exchangeReceived(exchange: GetExchangeResource) {
+  private exchangeReceived(exchange: GetExchangeResponse) {
     this._behaviors.UpdateDisplayedExchangeData(exchange);
   }
 
@@ -66,7 +66,7 @@ export class ExchangeScreenApi {
     this.Load();
   }
 
-  private whenAccountsReceived(resource: GetAccountsResource) {
+  private whenAccountsReceived(resource: AccountsResource) {
     this._behaviors.PassConnectionTest();
   }
 }

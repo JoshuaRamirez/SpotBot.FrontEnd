@@ -1,4 +1,4 @@
-export class GetExchangeResource {
+export class ExchangeResource {
   constructor() {
     this.ApiKeyPassphrase = "";
     this.ApiPrivateKey = "";

@@ -1,4 +1,4 @@
-export class GetAccountsResource {
+export class AccountsResource {
   public Id: string;
   public Currency: string;
   public Type: string;

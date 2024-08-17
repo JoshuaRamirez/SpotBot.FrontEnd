@@ -1,13 +1,13 @@
-import {GetUserTokenResource} from "../Resources/Gets/GetUserTokenResource";
-import {GetEncryptionKeyResource} from "../Resources/Gets/GetEncryptionKeyResource";
-import {GetExchangeResource} from "../Resources/Gets/GetExchangeResource";
+import {UserTokenResource} from "../Resources/UserTokenResource";
+import {EncryptionKeyResource} from "../Resources/EncryptionKeyResource";
+import {GetExchangeResponse} from "../Api/GetExchange/GetExchangeResponse";
 import {Orders} from "./Orders";
 
 export class Application {
 
-  public static ExchangeSecrets: GetExchangeResource;
-  public static UserToken: GetUserTokenResource = new GetUserTokenResource();
-  public static EncryptionKey: GetEncryptionKeyResource;
+  public static ExchangeSecrets: GetExchangeResponse;
+  public static UserToken: UserTokenResource = new UserTokenResource();
+  public static EncryptionKey: EncryptionKeyResource;
   public static Orders: Orders = new Orders();
 
   public static NewGuid(): string {
