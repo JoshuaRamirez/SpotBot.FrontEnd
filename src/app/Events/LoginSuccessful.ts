@@ -1,10 +1,10 @@
 // import {AppEvent} from "../Core/AppEvent";
-// import {GetUserTokenResource} from "../Resources/Gets/GetUserTokenResource";
+// import {UserTokenResource} from "../Resources/Gets/UserTokenResource";
 //
 // export class LoginSuccessful extends AppEvent {
 //   constructor() {
 //     super();
-//     this.UserToken = new GetUserTokenResource();
+//     this.UserToken = new UserTokenResource();
 //   }
-//   public UserToken: GetUserTokenResource;
+//   public UserToken: UserTokenResource;
 // }
