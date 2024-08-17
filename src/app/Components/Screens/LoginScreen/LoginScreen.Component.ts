@@ -18,10 +18,10 @@ export class LoginScreenComponent {
   private readonly _events: LoginScreenEvents;
   constructor() {
     this.Data = new LoginScreenData();
-    this._behaviors = new LoginScreenBehaviors(this.Data);
-    this._api = new LoginScreenApi(this._behaviors);
+    this._api = new LoginScreenApi();
+    this._behaviors = new LoginScreenBehaviors(this.Data, this._api);
     this._events = new LoginScreenEvents(this._behaviors);
-    this.Interactions = new LoginScreenInteractions(this._api);
+    this.Interactions = new LoginScreenInteractions(this._behaviors);
   }
 
 }

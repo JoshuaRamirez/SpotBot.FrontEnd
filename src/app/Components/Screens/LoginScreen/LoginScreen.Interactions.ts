@@ -1,11 +1,11 @@
-import {LoginScreenApi} from "./LoginScreen.Api";
+import {LoginScreenBehaviors} from "./LoginScreen.Behaviors";
 
 export class LoginScreenInteractions {
-  private readonly _api: LoginScreenApi;
-  public constructor(api: LoginScreenApi) {
-    this._api = api;
+  private readonly _behaviors: LoginScreenBehaviors;
+  public constructor(behaviors: LoginScreenBehaviors) {
+    this._behaviors = behaviors;
   }
-  LoginButtonClicked() {
-    this._api.Login();
+  async LoginButtonClicked() : Promise<void> {
+    await this._behaviors.Login();
   }
 }
