@@ -12,26 +12,27 @@ import {IComponent} from "../../../Core/IComponent";
   styleUrls: ['./ExchangeScreen.Styles.scss']
 })
 export class ExchangeScreenComponent implements OnInit, IComponent {
+
   public readonly Data: ExchangeScreenData;
   public readonly Interactions: ExchangeScreenInteractions;
   private readonly _api: ExchangeScreenApi;
   private readonly _behaviors: ExchangeScreenBehaviors;
   private readonly _changeDetectorRef: ChangeDetectorRef;
+
   constructor(changeDetectorRef: ChangeDetectorRef) {
     this._changeDetectorRef = changeDetectorRef;
     this.Data = new ExchangeScreenData();
-    this._behaviors = new ExchangeScreenBehaviors(this.Data, this)
-    this._api = new ExchangeScreenApi(this._behaviors);
-    this.Interactions = new ExchangeScreenInteractions(this._behaviors, this._api);
+    this._api = new ExchangeScreenApi();
+    this._behaviors = new ExchangeScreenBehaviors(this.Data, this._api, this)
+    this.Interactions = new ExchangeScreenInteractions(this._behaviors);
   }
 
-  ngOnInit(): void {
-    this._api.Load();
+  public async ngOnInit(): Promise<void> {
+    await this._behaviors.Load();
   }
 
-  DetectChanges(): void {
+  public DetectChanges(): void {
     this._changeDetectorRef.detectChanges();
   }
-
 
 }

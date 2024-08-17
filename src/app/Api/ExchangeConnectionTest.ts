@@ -3,12 +3,12 @@
 export class ExchangeConnectionTest {
   public static Run() : void {
 
-    const publicKey = Application.ExchangeSecrets.ApiPublicKey;
-    const privateKey = Application.ExchangeSecrets.ApiPrivateKey;
-    const passphrase = Application.ExchangeSecrets.ApiKeyPassphrase;
+    const publicKey = Application.Exchange.ApiPublicKey;
+    const privateKey = Application.Exchange.ApiPrivateKey;
+    const passphrase = Application.Exchange.ApiKeyPassphrase;
 
     const baseUrl = 'https://api.kucoin.com';
-    const endpoint = `/api/${Application.ExchangeSecrets.ApiVersion}/accounts`;
+    const endpoint = `/api/${Application.Exchange.ApiVersion}/accounts`;
 
     const config: AxiosRequestConfig = {
       baseURL: baseUrl,

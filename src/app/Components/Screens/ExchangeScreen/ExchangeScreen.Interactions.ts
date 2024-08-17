@@ -1,20 +1,17 @@
 import {ExchangeScreenBehaviors} from "./ExchangeScreen.Behaviors";
-import {ExchangeScreenApi} from "./ExchangeScreen.Api";
 
 export class ExchangeScreenInteractions {
   private readonly _behaviors: ExchangeScreenBehaviors;
-  private readonly _api: ExchangeScreenApi;
 
-  constructor(behaviors: ExchangeScreenBehaviors, api: ExchangeScreenApi) {
+  constructor(behaviors: ExchangeScreenBehaviors) {
     this._behaviors = behaviors;
-    this._api = api;
   }
-  public TestConnectionButtonClicked() {
-    this._api.TestExchangeConnection();
+  public async TestConnectionButtonClicked(): Promise<void> {
+    await this._behaviors.TestExchangeConnection();
   }
 
-  public SaveButtonClicked(): void {
-    this._api.Save();
+  public async SaveButtonClicked(): Promise<void> {
+    await this._behaviors.Save();
   }
 
 }

@@ -2,71 +2,56 @@ import {GetExchange} from "../../../Api/GetExchange/GetExchange";
 import {PostExchange} from "../../../Api/PostExchange/PostExchange";
 import {PatchExchange} from "../../../Api/PatchExchange/PatchExchange";
 import {Application} from "../../../Data/Application";
-import {GetExchangeResponse} from "../../../Api/GetExchange/GetExchangeResponse";
-import {ExchangeScreenBehaviors} from "./ExchangeScreen.Behaviors";
-import {GetAccounts} from "../../../Api/GetAccounts/GetAccounts";
 import {AccountsResource} from "../../../Resources/AccountsResource";
+import {ExchangeResource} from "../../../Resources/ExchangeResource";
+import {GetAccounts} from "../../../Api/GetAccounts/GetAccounts";
 
 export class ExchangeScreenApi {
-  private readonly _getExchange: GetExchange;
-  private readonly _postExchange: PostExchange;
-  private readonly _patchExchange: PatchExchange;
-  private readonly _getAccounts: GetAccounts;
-  private readonly _behaviors: ExchangeScreenBehaviors;
 
-  constructor(behaviors: ExchangeScreenBehaviors) {
-    this._behaviors = behaviors;
-    this._getExchange = new GetExchange();
-    this._postExchange = new PostExchange();
-    this._patchExchange = new PatchExchange();
-    this._getAccounts = new GetAccounts();
-    this._getExchange.$Response.subscribe(this.exchangeReceived.bind(this));
-    this._postExchange.$Response.subscribe(this.saveSucceeded.bind(this));
-    this._patchExchange.$Response.subscribe(this.saveSucceeded.bind(this));
-    this._getAccounts.$Response.subscribe(this.whenAccountsReceived.bind(this));
-  }
-
-  public Load(): void {
-    const userId = Application.UserToken.UserId;
+  public async GetExchange(userId: number): Promise<ExchangeResource> {
     if (!userId) {
       throw new Error("UserToken.UserId is null or undefined.")
     }
     const userIdString = userId.toString();
-    this._getExchange.Send(userIdString);
+    const getExchange = new GetExchange();
+    return getExchange.Send(userIdString);
   }
 
-  public Save(): void {
-    const resource = this._behaviors.BuildPostExchangeResource();
-    const userId = Application.UserToken.UserId;
+  public async PatchExchange(userId: number, resource: ExchangeResource): Promise<void> {
+    if (!resource) {
+      throw new Error("Argument `resource` is null or undefined.");
+    }
+    if (!resource.Id) {
+      throw new Error("Argument `resource.Id` is null or undefined.");
+    }
     if (!userId) {
-      throw new Error("UserToken.UserId is null or undefined.")
+      throw new Error("Argument `userId` is null or undefined.");
     }
     const userIdString = userId.toString();
-    if (resource.Id) {
-      this._patchExchange.Send(resource, userIdString);
-    } else {
-      this._postExchange.Send(resource, userIdString);
-    }
+
+    const patchExchange = new PatchExchange();
+    await patchExchange.Send(resource, userIdString);
   }
 
-  public TestExchangeConnection() {
-    const userId = Application.UserToken.UserId;
+  public async PostExchange(userId: number, resource: ExchangeResource): Promise<void> {
+    if (!resource) {
+      throw new Error("Argument `resource` is null or undefined.");
+    }
     if (!userId) {
-      throw new Error("UserToken.UserId is null or undefined.")
+      throw new Error("Argument `userId` is null or undefined.");
     }
     const userIdString = userId.toString();
-    this._getAccounts.Send(userIdString);
+    const postExchange = new PostExchange();
+    await postExchange.Send(resource, userIdString);
   }
 
-  private exchangeReceived(exchange: GetExchangeResponse) {
-    this._behaviors.UpdateDisplayedExchangeData(exchange);
-  }
-
-  private saveSucceeded() {
-    this.Load();
-  }
-
-  private whenAccountsReceived(resource: AccountsResource) {
-    this._behaviors.PassConnectionTest();
+  public async GetAccounts(userId: number) : Promise<AccountsResource> {
+    if (!userId) {
+      throw new Error("Argument `userId` is null or undefined.");
+    }
+    const userIdString = userId.toString();
+    const getAccounts = new GetAccounts();
+    const accounts = await getAccounts.Send(userIdString);
+    return accounts;
   }
 }

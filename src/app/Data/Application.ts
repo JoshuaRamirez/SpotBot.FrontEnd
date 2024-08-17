@@ -1,15 +1,21 @@
+import {ExchangeResource} from "../Resources/ExchangeResource";
 import {UserTokenResource} from "../Resources/UserTokenResource";
 import {EncryptionKeyResource} from "../Resources/EncryptionKeyResource";
-import {GetExchangeResponse} from "../Api/GetExchange/GetExchangeResponse";
 import {Orders} from "./Orders";
 
 export class Application {
 
-  public static ExchangeSecrets: GetExchangeResponse;
+  public static Exchange: ExchangeResource;
   public static UserToken: UserTokenResource = new UserTokenResource();
   public static EncryptionKey: EncryptionKeyResource;
   public static Orders: Orders = new Orders();
-
+  public static GetUserId() : number {
+    const userId = Application.UserToken.UserId;
+    if (!userId) {
+      throw new Error("UserToken.UserId is null or undefined.")
+    }
+    return userId;
+  }
   public static NewGuid(): string {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
       const r = Math.random() * 16 | 0;
