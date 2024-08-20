@@ -1,5 +1,5 @@
   import axios, { AxiosRequestConfig } from 'axios';
-  import {Application} from "../Data/Application";
+  import {Application} from "../Domain/Application";
 export class ExchangeConnectionTest {
   public static Run() : void {
 

@@ -1,5 +1,5 @@
 import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios';
-import {Application} from "../Data/Application";
+import {Application} from "../Domain/Application";
 
 type verbString = 'get' | 'post' | 'put' | 'patch' | 'delete';
 

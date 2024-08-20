@@ -1,17 +1,17 @@
-import {Application} from "../../../Data/Application";
+import {Application} from "../../../Domain/Application";
 import {UserTokenResource} from "../../../Resources/UserTokenResource";
 import {LocalStorageService} from "../../../Services/LocalStorageService";
 import {EncryptionKeyResource} from "../../../Resources/EncryptionKeyResource";
 import {LoginScreenApi} from "./LoginScreen.Api";
-import {LoginScreenData} from "./LoginScreen.Data";
-import {PostUserCredentialsRequest} from "../../../Api/PostUserCredentials/PostUserCredentialsRequest";
+import {LoginScreenModel} from "./LoginScreen.Model";
+import {PostUserCredentialsRequest} from "../../../Api/UserCredentials/PostUserCredentials/PostUserCredentialsRequest";
 import {Obfuscation} from "../../../Core/Obfuscation";
 import {NavigationService} from "../../../Services/NavigationService";
 
 export class LoginScreenBehaviors {
-  private readonly _data: LoginScreenData;
+  private readonly _data: LoginScreenModel;
   private readonly _api: LoginScreenApi;
-  constructor(loginScreenData: LoginScreenData, api: LoginScreenApi) {
+  constructor(loginScreenData: LoginScreenModel, api: LoginScreenApi) {
     this._data = loginScreenData;
     this._api = api;
   }

@@ -1,7 +1,7 @@
-import {PostUserCredentials} from "../../../Api/PostUserCredentials/PostUserCredentials";
-import {GetEncryptionKey} from "../../../Api/GetEncryptionKey/GetEncryptionKey";
+import {PostUserCredentials} from "../../../Api/UserCredentials/PostUserCredentials/PostUserCredentials";
+import {GetEncryptionKey} from "../../../Api/EncryptionKey/GetEncryptionKey/GetEncryptionKey";
 import {EncryptionKeyResource} from "../../../Resources/EncryptionKeyResource";
-import {PostUserCredentialsRequest} from "../../../Api/PostUserCredentials/PostUserCredentialsRequest";
+import {PostUserCredentialsRequest} from "../../../Api/UserCredentials/PostUserCredentials/PostUserCredentialsRequest";
 import {UserTokenResource} from "../../../Resources/UserTokenResource";
 import {LoginScreenBehaviors} from "./LoginScreen.Behaviors";
 

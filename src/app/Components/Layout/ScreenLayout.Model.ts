@@ -1,4 +1,4 @@
-export class ScreenLayoutData {
+export class ScreenLayoutModel {
   public UserName: string;
   constructor() {
     this.UserName = "";

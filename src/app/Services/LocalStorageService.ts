@@ -1,5 +1,5 @@
 import {UserTokenResource} from "../Resources/UserTokenResource";
-import {Application} from "../Data/Application";
+import {Application} from "../Domain/Application";
 import {EncryptionKeyResource} from "../Resources/EncryptionKeyResource";
 
 export class LocalStorageService {

@@ -1,6 +1,6 @@
-import {Orders} from "../../../Data/Orders";
+import {Orders} from "../../../Domain/Orders";
 
-export class TrailingTradesData {
+export class TrailingTradesModel {
   public constructor() {
     this.Orders = new Orders();
     this.Orders.Add();

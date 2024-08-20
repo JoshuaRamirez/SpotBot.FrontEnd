@@ -1,7 +1,7 @@
 import {TradeRowValidations} from "./TradeRow.Validations";
-import {Order} from "../../../../Data/Order";
+import {Order} from "../../../../Domain/Order";
 
-export class TradeRowData {
+export class TradeRowModel {
   constructor() {
     this.Order = new Order();
     this.Validations = new TradeRowValidations(this.Order);

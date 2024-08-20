@@ -1,4 +1,4 @@
-export class LoginScreenData {
+export class LoginScreenModel {
   constructor() {
     this.UserName = "TestUser";
     this.Password = "TestPassword";

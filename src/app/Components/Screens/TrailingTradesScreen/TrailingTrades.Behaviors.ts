@@ -1,8 +1,8 @@
-import {TrailingTradesData} from "./TrailingTrades.Data";
+import {TrailingTradesModel} from "./TrailingTrades.Model";
 
 export class TrailingTradesBehaviors {
-  public readonly _data: TrailingTradesData;
-  public constructor(data: TrailingTradesData) {
+  public readonly _data: TrailingTradesModel;
+  public constructor(data: TrailingTradesModel) {
     this._data = data;
   }
   public AddOrder() {

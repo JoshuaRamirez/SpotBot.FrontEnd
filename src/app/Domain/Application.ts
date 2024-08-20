@@ -1,11 +1,10 @@
-import {ExchangeResource} from "../Resources/ExchangeResource";
 import {UserTokenResource} from "../Resources/UserTokenResource";
 import {EncryptionKeyResource} from "../Resources/EncryptionKeyResource";
 import {Orders} from "./Orders";
+import { Exchange } from "./Exchange";
 
 export class Application {
-
-  public static Exchange: ExchangeResource;
+  public static Exchange: Exchange;
   public static UserToken: UserTokenResource = new UserTokenResource();
   public static EncryptionKey: EncryptionKeyResource;
   public static Orders: Orders = new Orders();

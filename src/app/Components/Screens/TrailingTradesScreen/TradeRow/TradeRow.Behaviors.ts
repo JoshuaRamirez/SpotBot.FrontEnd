@@ -1,13 +1,13 @@
-import {TradeRowData} from "./TradeRow.Data";
+import {TradeRowModel} from "./TradeRow.Model";
 
 export class TradeRowBehaviors {
-  public readonly Data: TradeRowData;
+  public readonly Data: TradeRowModel;
   private _lastPositionSize: string;
   private _lastEntryPrice: string;
   private _lastStopLossLevel: string;
   private _lastTakeProfitLevel: string;
   private _lastTradeType: string;
-  public constructor(tradeRowData: TradeRowData) {
+  public constructor(tradeRowData: TradeRowModel) {
     this.Data = tradeRowData;
     this._lastPositionSize = '';
     this._lastEntryPrice = '';

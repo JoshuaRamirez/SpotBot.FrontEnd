@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {ExchangeScreenInteractions} from "./ExchangeScreen.Interactions";
-import {ExchangeScreenData} from "./ExchangeScreen.Data";
+import {ExchangeScreenModel} from "./ExchangeScreen.Model";
 import {ExchangeScreenApi} from "./ExchangeScreen.Api";
 import {ExchangeScreenBehaviors} from "./ExchangeScreen.Behaviors";
 import {IComponent} from "../../../Core/IComponent";
@@ -13,7 +13,7 @@ import {IComponent} from "../../../Core/IComponent";
 })
 export class ExchangeScreenComponent implements OnInit, IComponent {
 
-  public readonly Data: ExchangeScreenData;
+  public readonly Data: ExchangeScreenModel;
   public readonly Interactions: ExchangeScreenInteractions;
   private readonly _api: ExchangeScreenApi;
   private readonly _behaviors: ExchangeScreenBehaviors;
@@ -21,7 +21,7 @@ export class ExchangeScreenComponent implements OnInit, IComponent {
 
   constructor(changeDetectorRef: ChangeDetectorRef) {
     this._changeDetectorRef = changeDetectorRef;
-    this.Data = new ExchangeScreenData();
+    this.Data = new ExchangeScreenModel();
     this._api = new ExchangeScreenApi();
     this._behaviors = new ExchangeScreenBehaviors(this.Data, this._api, this)
     this.Interactions = new ExchangeScreenInteractions(this._behaviors);

@@ -1,6 +1,6 @@
 import {ValidationResult} from "../../../../Core/ValidationResult";
 import {Validators} from "../../../../Core/Validators";
-import {Order} from "../../../../Data/Order";
+import {Order} from "../../../../Domain/Order";
 
 export class TradeRowValidations {
   private readonly _order: Order;
