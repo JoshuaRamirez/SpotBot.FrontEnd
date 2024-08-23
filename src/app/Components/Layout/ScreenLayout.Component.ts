@@ -9,12 +9,12 @@ import {ScreenLayoutBehaviors} from "./ScreenLayout.Behaviors";
   styleUrls: ['./ScreenLayout.Styles.scss']
 })
 export class ScreenLayoutComponent {
-  public readonly Data: ScreenLayoutModel;
+  public readonly Model: ScreenLayoutModel;
   public readonly Handler: ScreenLayoutInteractions;
   private readonly _behaviors: ScreenLayoutBehaviors;
   constructor() {
-    this.Data = new ScreenLayoutModel();
-    this._behaviors = new ScreenLayoutBehaviors(this.Data);
+    this.Model = new ScreenLayoutModel();
+    this._behaviors = new ScreenLayoutBehaviors(this.Model);
     this.Handler = new ScreenLayoutInteractions(this._behaviors);
   }
 }

@@ -14,7 +14,7 @@
         </mat-card-title>
         <mat-card-content fxLayout="column" fxLayoutAlign="start">
           <div class="container-xxl">
-            <div *ngFor="let order of Data.Orders" class="row">
+            <div *ngFor="let order of Model.Orders" class="row">
               <div class="col">
                 <app-trade-row [Order]="order"></app-trade-row>
               </div>

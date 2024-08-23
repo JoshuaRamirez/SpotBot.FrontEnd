@@ -1,62 +1,112 @@
-<mat-card style="margin: 20px; padding: 20px;">
-  <mat-card-title style="margin-bottom: 20px">
-    KuCoin API Credentials
-  </mat-card-title>
-  <mat-card-content fxLayout="column" fxLayoutAlign="start">
-    <div fxLayout="row wrap">
-      <div fxFlex="100">
-        <mat-form-field fxFlexFill>
-          <mat-label>API Public Key</mat-label>
-          <input matInput placeholder="Enter your API Public Key" [(ngModel)]="Data.Exchange.ApiPublicKey">
-        </mat-form-field>
+<div class="container mx-auto px-4 py-8">
+  <div class="bg-white shadow-md rounded-md p-6">
+    <h2 class="text-xl font-semibold mb-6">KuCoin API Credentials</h2>
+
+    <div class="space-y-4">
+      <div>
+        <div class="flex items-baseline">
+          <label class="block text-sm font-medium text-gray-700 mr-2">API Public Key</label>
+          <p *ngIf="!Model.Exchange.Validations.ApiPublicKey.IsValid" class="text-red-600 text-sm font-medium">
+            ({{ Model.Exchange.Validations.ApiPublicKey.Message }})
+          </p>
+          <p *ngIf="Model.Exchange.Validations.ApiPublicKey.IsValid" class="text-sm text-transparent font-medium">
+            No error
+          </p>
+        </div>
+        <input
+          type="text"
+          [(ngModel)]="Model.Exchange.ApiPublicKey"
+          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          placeholder="Enter your API Public Key"
+        />
       </div>
-      <div fxFlex="100">
-        <mat-form-field fxFlexFill>
-          <mat-label>API Private Key</mat-label>
-          <input matInput placeholder="Enter your API Private Key" [(ngModel)]="Data.Exchange.ApiPrivateKey">
-        </mat-form-field>
+
+      <div>
+        <div class="flex items-baseline">
+          <label class="block text-sm font-medium text-gray-700 mr-2">API Private Key</label>
+          <p *ngIf="!Model.Exchange.Validations.ApiPrivateKey.IsValid" class="text-red-600 text-sm font-medium">
+            ({{ Model.Exchange.Validations.ApiPrivateKey.Message }})
+          </p>
+          <p *ngIf="Model.Exchange.Validations.ApiPrivateKey.IsValid" class="text-sm text-transparent font-medium">
+            No error
+          </p>
+        </div>
+        <input
+          type="text"
+          [(ngModel)]="Model.Exchange.ApiPrivateKey"
+          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          placeholder="Enter your API Private Key"
+        />
       </div>
-      <div fxFlex="100">
-        <mat-form-field fxFlexFill>
-          <mat-label>API Passphrase</mat-label>
-          <input matInput placeholder="Enter your API Passphrase" [(ngModel)]="Data.Exchange.ApiKeyPassphrase">
-        </mat-form-field>
+
+      <div>
+        <div class="flex items-baseline">
+          <label class="block text-sm font-medium text-gray-700 mr-2">API Passphrase</label>
+          <p *ngIf="!Model.Exchange.Validations.ApiKeyPassphrase.IsValid" class="text-red-600 text-sm font-medium">
+            ({{ Model.Exchange.Validations.ApiKeyPassphrase.Message }})
+          </p>
+          <p *ngIf="Model.Exchange.Validations.ApiKeyPassphrase.IsValid" class="text-sm text-transparent font-medium">
+            No error
+          </p>
+        </div>
+        <input
+          type="text"
+          [(ngModel)]="Model.Exchange.ApiKeyPassphrase"
+          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          placeholder="Enter your API Passphrase"
+        />
       </div>
-      <div fxFlex="100">
-        <mat-form-field fxFlexFill>
-          <mat-label>API Version</mat-label>
-          <input matInput placeholder="Enter your API Version" [(ngModel)]="Data.Exchange.ApiVersion">
-        </mat-form-field>
+
+      <div>
+        <div class="flex items-baseline">
+          <label class="block text-sm font-medium text-gray-700 mr-2">API Version</label>
+          <p *ngIf="!Model.Exchange.Validations.ApiVersion.IsValid" class="text-red-600 text-sm font-medium">
+            ({{ Model.Exchange.Validations.ApiVersion.Message }})
+          </p>
+          <p *ngIf="Model.Exchange.Validations.ApiVersion.IsValid" class="text-sm text-transparent font-medium">
+            No error
+          </p>
+        </div>
+        <input
+          type="text"
+          [(ngModel)]="Model.Exchange.ApiVersion"
+          class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          placeholder="Enter your API Version"
+        />
       </div>
     </div>
-  </mat-card-content>
-  <mat-card-actions fxLayoutAlign="end" fxLayout="column">
-    <div fxLayout="row" fxLayoutAlign="end">
+
+    <div class="mt-6 flex justify-end space-x-3">
       <button
-        mat-raised-button
-        color="primary"
-        (click)="Interactions.TestConnectionButtonClicked()">
-        Test Connection
-      </button>
-      <button
-        style="margin-left: 10px"
-        mat-raised-button
-        color="primary"
-        (click)="Interactions.SaveButtonClicked()">
+        type="button"
+        class="px-4 py-2 rounded-md shadow-sm text-white focus:outline-none focus:ring-2 focus:ring-offset-2"
+        [ngClass]="{
+          'bg-blue-600 hover:bg-blue-700 focus:ring-blue-500': Model.IsValid(),
+          'bg-gray-400 cursor-not-allowed': !Model.IsValid()
+        }"
+        [disabled]="!Model.IsValid()"
+        (click)="Interactions.SaveButtonClicked()"
+      >
         Save
       </button>
     </div>
-    <mat-card *ngIf="Data.Tested && !Data.TestResult" class="test-result-card test-failed">
-      <mat-card-content>
-        <mat-icon color="warn" class="test-result-icon">error</mat-icon>
-        <span class="test-result-icon"><strong> Test Failed: </strong> {{ Data.TestErrorResult }}</span>
-      </mat-card-content>
-    </mat-card>
-    <mat-card *ngIf="Data.Tested && Data.TestResult" class="test-result-card test-successful">
-      <mat-card-content>
-        <mat-icon color="primary" class="test-result-icon">check_circle</mat-icon>
-        <span class="test-result-icon"><strong> Test Successful!</strong></span>
-      </mat-card-content>
-    </mat-card>
-  </mat-card-actions>
-</mat-card>
+
+    <div *ngIf="Model.Tested && !Model.TestResult" class="mt-6 p-4 border-l-4 bg-red-100 border-red-500 text-red-700">
+      <p class="flex items-center">
+        <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-1.414-1.414-10.95 10.95v2.828h2.828l10.95-10.95z" />
+        </svg>
+        <strong>Test Failed: </strong> {{ Model.TestErrorResult }}
+      </p>
+    </div>
+
+    <div *ngIf="Model.Tested && Model.TestResult" class="mt-6 p-4 border-l-4 bg-green-100 border-green-500 text-green-700">
+      <p class="flex items-center">
+        <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <strong>Test Successful!</strong>
+      </p>
+    </div>
+  </div>
+</div>

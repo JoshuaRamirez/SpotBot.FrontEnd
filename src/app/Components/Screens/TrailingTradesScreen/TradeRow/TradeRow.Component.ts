@@ -9,16 +9,16 @@ import {Order} from "../../../../Domain/Order";
   templateUrl: './TradeRow.Template.html',
   styleUrls: ['./TradeRow.Styles.scss']})
 export class TradeRowComponent {
-  public readonly Data: TradeRowModel;
+  public readonly Model: TradeRowModel;
   public readonly Interactions: TradeRowInteractions;
   private readonly _behaviors: TradeRowBehaviors;
 
   @Input() public set Order(value: Order) {
-    this.Data.Order = value;
+    this.Model.Order = value;
   }
   public constructor() {
-    this.Data = new TradeRowModel();
-    this._behaviors = new TradeRowBehaviors(this.Data);
+    this.Model = new TradeRowModel();
+    this._behaviors = new TradeRowBehaviors(this.Model);
     this.Interactions = new TradeRowInteractions(this._behaviors)
   }
 }

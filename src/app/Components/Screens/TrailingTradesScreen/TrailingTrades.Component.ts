@@ -7,12 +7,12 @@ import {TrailingTradesInteractions} from "./TrailingTrades.Interactions";
   templateUrl: './TrailingTrades.Template.html',
   styleUrls: ['./TrailingTrades.Styles.scss']})
 export class TrailingTradesComponent {
-  public readonly Data: TrailingTradesModel;
+  public readonly Model: TrailingTradesModel;
   public readonly _behaviors: TrailingTradesBehaviors;
   public readonly Interactions: TrailingTradesInteractions
   public constructor() {
-    this.Data = new TrailingTradesModel();
-    this._behaviors = new TrailingTradesBehaviors(this.Data);
+    this.Model = new TrailingTradesModel();
+    this._behaviors = new TrailingTradesBehaviors(this.Model);
     this.Interactions = new TrailingTradesInteractions(this._behaviors);
   }
 

@@ -9,11 +9,11 @@ import {IComponent} from "../../../Core/IComponent";
 @Component({
   selector: 'app-exchange-screen',
   templateUrl: './ExchangeScreen.Template.html',
-  styleUrls: ['./ExchangeScreen.Styles.scss']
+  //styleUrls: ['./ExchangeScreen.Styles.scss']
 })
 export class ExchangeScreenComponent implements OnInit, IComponent {
 
-  public readonly Data: ExchangeScreenModel;
+  public readonly Model: ExchangeScreenModel;
   public readonly Interactions: ExchangeScreenInteractions;
   private readonly _api: ExchangeScreenApi;
   private readonly _behaviors: ExchangeScreenBehaviors;
@@ -21,9 +21,9 @@ export class ExchangeScreenComponent implements OnInit, IComponent {
 
   constructor(changeDetectorRef: ChangeDetectorRef) {
     this._changeDetectorRef = changeDetectorRef;
-    this.Data = new ExchangeScreenModel();
+    this.Model = new ExchangeScreenModel();
     this._api = new ExchangeScreenApi();
-    this._behaviors = new ExchangeScreenBehaviors(this.Data, this._api, this)
+    this._behaviors = new ExchangeScreenBehaviors(this.Model, this._api, this)
     this.Interactions = new ExchangeScreenInteractions(this._behaviors);
   }
 
@@ -34,5 +34,6 @@ export class ExchangeScreenComponent implements OnInit, IComponent {
   public DetectChanges(): void {
     this._changeDetectorRef.detectChanges();
   }
+
 
 }

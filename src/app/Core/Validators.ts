@@ -21,11 +21,11 @@ export class Validators {
     return result;
   }
 
-  public static Required(value: string): ValidationResult {
+  public static Required(value: string | undefined | null): ValidationResult {
     const result = new ValidationResult();
     result.IsValid = true;
-    if (!value.length) {
-      result.Message = 'Value required';
+    if (!value || !value.length) {
+      result.Message = 'Value Required';
       result.IsValid = false;
     }
     return result;
