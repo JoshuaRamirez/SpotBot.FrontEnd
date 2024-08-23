@@ -7,7 +7,7 @@
       [Masked]="false"
       [IsValid]="Model.Validations.PositionSize.IsValid"
       [Error]="Model.Validations.PositionSize.Message"
-      [(Bind)]="Model.Order.PositionSize">
+      [(Value)]="Model.Order.PositionSize">
     </app-text-box>
   </div>
 
@@ -15,10 +15,9 @@
     <app-text-box
       [Label]="'Entry Price'"
       [Placeholder]="'Enter your entry price'"
-      [(ngModel)]="Model.Order.EntryPrice"
       [IsValid]="Model.Validations.EntryPrice.IsValid"
       [Error]="Model.Validations.EntryPrice.Message"
-      [(Bind)]="Model.Order.EntryPrice">
+      [(Value)]="Model.Order.EntryPrice">
     </app-text-box>
   </div>
 
@@ -26,10 +25,9 @@
     <app-text-box
       [Label]="'Stop Loss Level'"
       [Placeholder]="'Enter your stop loss level'"
-      [(ngModel)]="Model.Order.StopLossLevel"
       [IsValid]="Model.Validations.StopLossLevel.IsValid"
       [Error]="Model.Validations.StopLossLevel.Message"
-      [(Bind)]="Model.Order.StopLossLevel">
+      [(Value)]="Model.Order.StopLossLevel">
     </app-text-box>
   </div>
 
@@ -37,10 +35,9 @@
     <app-text-box
       [Label]="'Take Profit Level'"
       [Placeholder]="'Enter your take profit level'"
-      [(ngModel)]="Model.Order.TakeProfitLevel"
       [IsValid]="Model.Validations.TakeProfitLevel.IsValid"
       [Error]="Model.Validations.TakeProfitLevel.Message"
-      [(Bind)]="Model.Order.TakeProfitLevel">
+      [(Value)]="Model.Order.TakeProfitLevel">
     </app-text-box>
   </div>
 
@@ -51,7 +48,7 @@
       [Options]="['Buy', 'Sell']"
       [IsValid]="Model.Validations.TradeType.IsValid"
       [Error]="Model.Validations.TradeType.Message"
-      [(Bind)]="Model.Order.TradeType">
+      [(Value)]="Model.Order.TradeType">
     </app-drop-down>
   </div>
 

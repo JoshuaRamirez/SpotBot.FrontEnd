@@ -9,7 +9,7 @@ import {IComponent} from "../../../Core/IComponent";
 @Component({
   selector: 'app-exchange-screen',
   templateUrl: './ExchangeScreen.Template.html',
-  //styleUrls: ['./ExchangeScreen.Styles.scss']
+  styleUrls: ['./ExchangeScreen.Styles.scss']
 })
 export class ExchangeScreenComponent implements OnInit, IComponent {
 
@@ -33,6 +33,10 @@ export class ExchangeScreenComponent implements OnInit, IComponent {
 
   public DetectChanges(): void {
     this._changeDetectorRef.detectChanges();
+  }
+
+  public MarkForCheck(): void {
+    this._changeDetectorRef.markForCheck();
   }
 
 

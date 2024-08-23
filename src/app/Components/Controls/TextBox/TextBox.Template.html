@@ -1,5 +1,5 @@
-<mat-form-field>
+<mat-form-field fxFlexFill>
   <mat-label>{{Label}}</mat-label>
-  <input matInput [formControl]="TextBoxFormControl" [errorStateMatcher]="TextBoxErrorStateMatcher" [placeholder]="Placeholder" [type]="Type" [(Bind)]="Value" >
-  <mat-error *ngIf="TextBoxFormControl.hasError('IsInvalid')">{{Error}}</mat-error>
+  <input matInput [formControl]="TextBoxFormControl" [errorStateMatcher]="TextBoxErrorStateMatcher" [placeholder]="Placeholder" [type]="Type" [value]="Value" (blur)="onBlur()" (input)="onInput($event)">
+  <mat-error *ngIf="!IsValid">{{Error}}</mat-error>
 </mat-form-field>

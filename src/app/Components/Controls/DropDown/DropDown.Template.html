@@ -1,7 +1,7 @@
 <mat-form-field>
   <mat-label>{{Label}}</mat-label>
-  <mat-select [(value)]="Value">
-    <mat-option *ngFor="let option of Options" [value]="option">
+  <mat-select (blur)="onBlur()" (input)="onInput($event)" [value]="Value">
+    <mat-option *ngFor="let option of Options" [value]="option" >
       {{ option }}
     </mat-option>
   </mat-select>

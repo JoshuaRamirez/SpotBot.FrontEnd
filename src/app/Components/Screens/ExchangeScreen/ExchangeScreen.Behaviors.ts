@@ -9,7 +9,7 @@ import {IComponent} from "../../../Core/IComponent";
 
 export class ExchangeScreenBehaviors {
 
-  private readonly model: ExchangeScreenModel;
+  private model: ExchangeScreenModel;
   private readonly _component: IComponent;
   private _api: ExchangeScreenApi;
 
@@ -44,7 +44,7 @@ export class ExchangeScreenBehaviors {
       this.model.TestResult = true;
     }
     this.model.TestErrorResult = testResult;
-    this._component.DetectChanges();
+    this._component.MarkForCheck();
   }
 
   public async Save() : Promise<void> {
@@ -102,7 +102,7 @@ export class ExchangeScreenBehaviors {
     this.model.Exchange.ApiVersion = getExchangeResponse.ApiVersion;
     this.model.Id = getExchangeResponse.Id;
     Application.Exchange = this.model.Exchange;
-    this._component.DetectChanges();
+    this._component.MarkForCheck();
   }
 }
 

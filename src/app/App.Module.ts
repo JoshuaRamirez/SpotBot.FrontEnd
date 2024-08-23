@@ -20,8 +20,6 @@ import {TrailingTradesComponent} from "./Components/Screens/TrailingTradesScreen
 import {MatSelectModule} from "@angular/material/select";
 import {TradeRowComponent} from "./Components/Screens/TrailingTradesScreen/TradeRow/TradeRow.Component";
 import {TextBoxComponent} from "./Components/Controls/TextBox/TextBox.Component";
-import {TextBoxBindDirective} from "./Components/Controls/Core/TextBoxBindDirective";
-import {DropDownBindDirective} from "./Components/Controls/Core/DropDownBindDirective";
 import {DropDownComponent} from "./Components/Controls/DropDown/DropDown.Component";
 
 @NgModule({
@@ -34,8 +32,6 @@ import {DropDownComponent} from "./Components/Controls/DropDown/DropDown.Compone
     TrailingTradesComponent,
     TradeRowComponent,
     TextBoxComponent,
-    TextBoxBindDirective,
-    DropDownBindDirective,
     DropDownComponent
   ],
   imports: [

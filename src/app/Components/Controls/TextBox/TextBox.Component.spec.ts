@@ -5,7 +5,6 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { TextBoxComponent } from './TextBox.Component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
-import {TextBoxBindDirective} from "../Core/TextBoxBindDirective";
 import {TextBoxErrorStateMatcher} from "../Core/TextBoxErrorStateMatcher";
 
 describe('TextBoxComponent', () => {
@@ -23,7 +22,6 @@ describe('TextBoxComponent', () => {
       ],
       declarations: [
         TextBoxComponent,
-        TextBoxBindDirective,
         // other components, directives, or pipes
       ],
       providers: [
