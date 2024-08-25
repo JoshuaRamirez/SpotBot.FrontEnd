@@ -31,10 +31,6 @@ export class ExchangeScreenComponent implements OnInit, IComponent {
     await this._behaviors.Load();
   }
 
-  public DetectChanges(): void {
-    this._changeDetectorRef.detectChanges();
-  }
-
   public MarkForCheck(): void {
     this._changeDetectorRef.markForCheck();
   }

@@ -6,7 +6,7 @@
       [Placeholder]="'Enter your position size'"
       [Masked]="false"
       [IsValid]="Model.Validations.PositionSize.IsValid"
-      [Error]="Model.Validations.PositionSize.Message"
+      [Error]="Model.Validations.PositionSize.Error"
       [(Value)]="Model.Order.PositionSize">
     </app-text-box>
   </div>
@@ -16,7 +16,7 @@
       [Label]="'Entry Price'"
       [Placeholder]="'Enter your entry price'"
       [IsValid]="Model.Validations.EntryPrice.IsValid"
-      [Error]="Model.Validations.EntryPrice.Message"
+      [Error]="Model.Validations.EntryPrice.Error"
       [(Value)]="Model.Order.EntryPrice">
     </app-text-box>
   </div>
@@ -26,7 +26,7 @@
       [Label]="'Stop Loss Level'"
       [Placeholder]="'Enter your stop loss level'"
       [IsValid]="Model.Validations.StopLossLevel.IsValid"
-      [Error]="Model.Validations.StopLossLevel.Message"
+      [Error]="Model.Validations.StopLossLevel.Error"
       [(Value)]="Model.Order.StopLossLevel">
     </app-text-box>
   </div>
@@ -36,7 +36,7 @@
       [Label]="'Take Profit Level'"
       [Placeholder]="'Enter your take profit level'"
       [IsValid]="Model.Validations.TakeProfitLevel.IsValid"
-      [Error]="Model.Validations.TakeProfitLevel.Message"
+      [Error]="Model.Validations.TakeProfitLevel.Error"
       [(Value)]="Model.Order.TakeProfitLevel">
     </app-text-box>
   </div>
@@ -47,7 +47,7 @@
       [Placeholder]="'Select your symbol'"
       [Options]="['Buy', 'Sell']"
       [IsValid]="Model.Validations.TradeType.IsValid"
-      [Error]="Model.Validations.TradeType.Message"
+      [Error]="Model.Validations.TradeType.Error"
       [(Value)]="Model.Order.TradeType">
     </app-drop-down>
   </div>

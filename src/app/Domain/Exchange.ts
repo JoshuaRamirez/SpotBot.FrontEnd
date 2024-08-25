@@ -1,6 +1,6 @@
 import {Encryption} from "../Core/Encryption";
-import {ValidationResult} from "../Core/ValidationResult";
-import {Validators} from "../Core/Validators";
+import {ValidationResult} from "../Validation/Core/ValidationResult";
+import {Validations} from "../Validation/Validations";
 import {Application} from "./Application";
 export class Exchange {
   private readonly _encryption: Encryption;
@@ -72,22 +72,22 @@ export class ExchangeValidations {
   }
   public get ApiVersion(): ValidationResult {
     const value = this._exchange.ApiVersion;
-    const result = Validators.Required(value);
+    const result = Validations.Required(value);
     return result;
   }
   public get ApiPublicKey(): ValidationResult {
     const value = this._exchange.EncryptedApiPublicKey;
-    const result = Validators.Required(value);
+    const result = Validations.Required(value);
     return result;
   }
   public get ApiPrivateKey(): ValidationResult {
     const value = this._exchange.EncryptedApiPrivateKey;
-    const result = Validators.Required(value);
+    const result = Validations.Required(value);
     return result;
   }
   public get ApiKeyPassphrase(): ValidationResult {
     const value = this._exchange.EncryptedApiKeyPassphrase;
-    const result = Validators.Required(value);
+    const result = Validations.Required(value);
     return result;
   }
 }

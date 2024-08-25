@@ -6,7 +6,7 @@ export abstract class HttpGetRequest<TResponse> extends HttpRequest<TResponse> {
     super(uriBase);
   }
 
-  public Send(uriAddendum?: string): Promise<TResponse> {
+  protected Send(uriAddendum?: string): Promise<TResponse> {
     const responsePromise = this.SendRequest<never, TResponse>(HttpVerb.Get, undefined, uriAddendum);
     responsePromise.then((response) => {
       this.$Response.next(response);

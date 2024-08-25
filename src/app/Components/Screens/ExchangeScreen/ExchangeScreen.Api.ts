@@ -10,49 +10,23 @@ import {GetAccounts} from "../../../Api/Accounts/GetAccounts/GetAccounts";
 export class ExchangeScreenApi {
 
   public async GetExchange(userId: number): Promise<GetExchangeResponse> {
-    if (!userId) {
-      throw new Error("UserToken.UserId is null or undefined.")
-    }
-    const userIdString = userId.toString();
     const getExchange = new GetExchange();
-    return getExchange.Send(userIdString);
+    return getExchange.Get(userId);
   }
 
   public async PatchExchange(userId: number, body: PatchExchangeRequest): Promise<void> {
-    if (!body) {
-      throw new Error("Argument `resource` is null or undefined.");
-    }
-    if (!body.Id) {
-      throw new Error("Argument `resource.Id` is null or undefined.");
-    }
-    if (!userId) {
-      throw new Error("Argument `userId` is null or undefined.");
-    }
-    const userIdString = userId.toString();
-
     const patchExchange = new PatchExchange();
-    await patchExchange.Send(body, userIdString);
+    await patchExchange.Patch(userId, body);
   }
 
   public async PostExchange(userId: number, postExchangeRequest: PostExchangeRequest): Promise<void> {
-    if (!postExchangeRequest) {
-      throw new Error("Argument `resource` is null or undefined.");
-    }
-    if (!userId) {
-      throw new Error("Argument `userId` is null or undefined.");
-    }
-    const userIdString = userId.toString();
     const postExchange = new PostExchange();
-    await postExchange.Send(postExchangeRequest, userIdString);
+    await postExchange.Post(userId, postExchangeRequest);
   }
 
   public async GetAccounts(userId: number) : Promise<AccountsResource> {
-    if (!userId) {
-      throw new Error("Argument `userId` is null or undefined.");
-    }
-    const userIdString = userId.toString();
     const getAccounts = new GetAccounts();
-    const accounts = await getAccounts.Send(userIdString);
+    const accounts = await getAccounts.Get(userId);
     return accounts;
   }
 }

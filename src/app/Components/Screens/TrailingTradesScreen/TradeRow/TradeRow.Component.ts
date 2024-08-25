@@ -12,7 +12,6 @@ export class TradeRowComponent {
   public readonly Model: TradeRowModel;
   public readonly Interactions: TradeRowInteractions;
   private readonly _behaviors: TradeRowBehaviors;
-
   @Input() public set Order(value: Order) {
     this.Model.Order = value;
   }

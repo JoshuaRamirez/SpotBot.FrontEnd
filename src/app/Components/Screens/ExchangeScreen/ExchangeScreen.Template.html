@@ -11,7 +11,7 @@
           [Placeholder]="'Enter your API Public Key'"
           [Masked]="false"
           [IsValid]="Model.Exchange.Validations.ApiPublicKey.IsValid"
-          [Error]="Model.Exchange.Validations.ApiPublicKey.Message"
+          [Error]="Model.Exchange.Validations.ApiPublicKey.Error"
           [(Value)]="Model.Exchange.ApiPublicKey">
         ></app-text-box>
       </div>
@@ -21,7 +21,7 @@
           [Placeholder]="'Enter your API Private Key'"
           [Masked]="false"
           [IsValid]="Model.Exchange.Validations.ApiPrivateKey.IsValid"
-          [Error]="Model.Exchange.Validations.ApiPrivateKey.Message"
+          [Error]="Model.Exchange.Validations.ApiPrivateKey.Error"
           [(Value)]="Model.Exchange.ApiPrivateKey">
           ></app-text-box>
       </div>
@@ -31,7 +31,7 @@
           [Placeholder]="'Enter your API Key Passphrase'"
           [Masked]="false"
           [IsValid]="Model.Exchange.Validations.ApiKeyPassphrase.IsValid"
-          [Error]="Model.Exchange.Validations.ApiKeyPassphrase.Message"
+          [Error]="Model.Exchange.Validations.ApiKeyPassphrase.Error"
           [(Value)]="Model.Exchange.ApiKeyPassphrase">
           ></app-text-box>
       </div>
@@ -41,7 +41,7 @@
           [Placeholder]="'Enter the API Version'"
           [Masked]="false"
           [IsValid]="Model.Exchange.Validations.ApiVersion.IsValid"
-          [Error]="Model.Exchange.Validations.ApiVersion.Message"
+          [Error]="Model.Exchange.Validations.ApiVersion.Error"
           [(Value)]="Model.Exchange.ApiVersion!">
           ></app-text-box>
       </div>

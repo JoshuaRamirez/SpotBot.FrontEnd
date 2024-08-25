@@ -6,7 +6,7 @@ export abstract class HttpPostRequest<TRequest, TResponse> extends HttpRequest<T
     super(uriBase);
   }
 
-  public Send(resource: TRequest, uriAddendum?: string): Promise<TResponse> {
+  protected Send(resource: TRequest, uriAddendum?: string): Promise<TResponse> {
     const responsePromise = this.SendRequest<TRequest, TResponse>(HttpVerb.Post, resource, uriAddendum);
     responsePromise.then((response) => {
       this.$Response.next(response);

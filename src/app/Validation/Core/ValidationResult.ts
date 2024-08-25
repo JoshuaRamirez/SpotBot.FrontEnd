@@ -1,7 +1,7 @@
 export class ValidationResult {
   public constructor() {
     this._isValid = false;
-    this.Message = '';
+    this.Errors = [];
   }
   private _isValid: boolean;
   public get IsInvalid(): boolean{
@@ -16,5 +16,12 @@ export class ValidationResult {
   public set IsValid(value: boolean) {
     this._isValid = value;
   }
-  public Message: string;
+  public Errors: Array<string> = [];
+  public get Error(): string {
+    if (this.Errors.length > 0) {
+      return this.Errors[0];
+    } else {
+      return "";
+    }
+  }
 }
