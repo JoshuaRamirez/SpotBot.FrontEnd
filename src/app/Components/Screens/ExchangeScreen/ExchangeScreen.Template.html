@@ -1,80 +1,62 @@
-<mat-card style="margin: 20px; padding: 20px;">
-  <mat-card-title style="margin-bottom: 20px">
+<mat-card class="credential-card">
+  <mat-card-title>
     KuCoin API Credentials
-    <hr>
+    <mat-divider></mat-divider>
   </mat-card-title>
-  <mat-card-content fxLayout="column" fxLayoutAlign="start">
-    <div fxLayout="row wrap">
-      <div class="input" fxFlex="100">
-        <app-text-box
-          [Label]="'API Public key'"
-          [Placeholder]="'Enter your API Public Key'"
-          [Masked]="false"
-          [IsValid]="Model.Exchange.Validations.ApiPublicKey.IsValid"
-          [Error]="Model.Exchange.Validations.ApiPublicKey.Error"
-          [(Value)]="Model.Exchange.ApiPublicKey">
-        ></app-text-box>
-      </div>
-      <div class="input" fxFlex="100">
-        <app-text-box
-          [Label]="'API Private Key'"
-          [Placeholder]="'Enter your API Private Key'"
-          [Masked]="false"
-          [IsValid]="Model.Exchange.Validations.ApiPrivateKey.IsValid"
-          [Error]="Model.Exchange.Validations.ApiPrivateKey.Error"
-          [(Value)]="Model.Exchange.ApiPrivateKey">
-          ></app-text-box>
-      </div>
-      <div class="input" fxFlex="100">
-        <app-text-box
-          [Label]="'API Key Passphrase'"
-          [Placeholder]="'Enter your API Key Passphrase'"
-          [Masked]="false"
-          [IsValid]="Model.Exchange.Validations.ApiKeyPassphrase.IsValid"
-          [Error]="Model.Exchange.Validations.ApiKeyPassphrase.Error"
-          [(Value)]="Model.Exchange.ApiKeyPassphrase">
-          ></app-text-box>
-      </div>
-      <div class="input" fxFlex="100">
-        <app-text-box
-          [Label]="'API Version'"
-          [Placeholder]="'Enter the API Version'"
-          [Masked]="false"
-          [IsValid]="Model.Exchange.Validations.ApiVersion.IsValid"
-          [Error]="Model.Exchange.Validations.ApiVersion.Error"
-          [(Value)]="Model.Exchange.ApiVersion!">
-          ></app-text-box>
-      </div>
-    </div>
+  <mat-card-content>
+    <mat-form-field appearance="fill" class="input-field">
+      <mat-label>API Public Key</mat-label>
+      <input matInput placeholder="Enter your API Public Key" [(ngModel)]="Model.Exchange.ApiPublicKey" />
+      <mat-error *ngIf="!Model.Exchange.Validations.ApiPublicKey.IsValid">
+        {{ Model.Exchange.Validations.ApiPublicKey.Error }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="input-field">
+      <mat-label>API Private Key</mat-label>
+      <input matInput placeholder="Enter your API Private Key" [(ngModel)]="Model.Exchange.ApiPrivateKey" />
+      <mat-error *ngIf="!Model.Exchange.Validations.ApiPrivateKey.IsValid">
+        {{ Model.Exchange.Validations.ApiPrivateKey.Error }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="input-field">
+      <mat-label>API Key Passphrase</mat-label>
+      <input matInput placeholder="Enter your API Key Passphrase" [(ngModel)]="Model.Exchange.ApiKeyPassphrase" />
+      <mat-error *ngIf="!Model.Exchange.Validations.ApiKeyPassphrase.IsValid">
+        {{ Model.Exchange.Validations.ApiKeyPassphrase.Error }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="input-field">
+      <mat-label>API Version</mat-label>
+      <input matInput placeholder="Enter the API Version" [(ngModel)]="Model.Exchange.ApiVersion" />
+      <mat-error *ngIf="!Model.Exchange.Validations.ApiVersion.IsValid">
+        {{ Model.Exchange.Validations.ApiVersion.Error }}
+      </mat-error>
+    </mat-form-field>
   </mat-card-content>
-  <mat-card-actions fxLayoutAlign="end" fxLayout="column">
-    <div fxLayout="row" fxLayoutAlign="end">
-      <button
-        mat-raised-button
-        color="primary"
-        (click)="Interactions.TestConnectionButtonClicked()">
-        Test Connection
-      </button>
-      <button
-        style="margin-left: 10px"
-        mat-raised-button
-        color="primary"
-        [disabled]="!Model.IsValid()"
-        (click)="Interactions.SaveButtonClicked()">
-        Save
-      </button>
-    </div>
-    <mat-card *ngIf="Model.Tested && !Model.TestResult" class="test-result-card test-failed">
-      <mat-card-content>
-        <mat-icon color="warn" class="test-result-icon">error</mat-icon>
-        <span class="test-result-icon"><strong> Test Failed: </strong> {{ Model.TestErrorResult }}</span>
-      </mat-card-content>
-    </mat-card>
-    <mat-card *ngIf="Model.Tested && Model.TestResult" class="test-result-card test-successful">
-      <mat-card-content>
-        <mat-icon color="primary" class="test-result-icon">check_circle</mat-icon>
-        <span class="test-result-icon"><strong> Test Successful!</strong></span>
-      </mat-card-content>
-    </mat-card>
+
+  <mat-card-actions class="action-buttons">
+    <button mat-raised-button color="primary" (click)="Interactions.TestConnectionButtonClicked()">
+      Test Connection
+    </button>
+    <button mat-raised-button color="primary" [disabled]="!Model.IsValid()" (click)="Interactions.SaveButtonClicked()">
+      Save
+    </button>
   </mat-card-actions>
+
+  <mat-card *ngIf="Model.Tested && !Model.TestResult" class="test-result-card test-failed">
+    <mat-card-content>
+      <mat-icon color="warn" class="test-result-icon">error</mat-icon>
+      <span><strong> Test Failed: </strong> {{ Model.TestErrorResult }}</span>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="Model.Tested && Model.TestResult" class="test-result-card test-successful">
+    <mat-card-content>
+      <mat-icon color="primary" class="test-result-icon">check_circle</mat-icon>
+      <span><strong> Test Successful!</strong></span>
+    </mat-card-content>
+  </mat-card>
 </mat-card>

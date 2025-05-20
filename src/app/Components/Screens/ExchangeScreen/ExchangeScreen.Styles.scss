@@ -1,21 +1,32 @@
+.credential-card {
+  margin: 20px;
+  padding: 20px;
+}
+.input-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
 .test-result-card {
   margin-top: 10px;
   padding: 10px;
   border-left: 6px solid;
 }
-
 .test-failed {
   background-color: #fff3f3;
   color: #a94442;
   border-color: #f44336;
 }
-
 .test-successful {
   background-color: #e8f5e9;
   color: #388e3c;
   border-color: #4caf50;
 }
-
 .test-result-icon {
   vertical-align: middle;
+  margin-right: 8px;
 }

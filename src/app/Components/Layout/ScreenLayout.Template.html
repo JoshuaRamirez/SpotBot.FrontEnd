@@ -1,8 +1,14 @@
-<div class="bg-primary bg-opacity-75 ps-3 pt-3 pb-1 mb-0">
-  <p class="h1 text-light" href="#">SpotBot Portfolio</p>
-</div>
-<div class="bg-primary-subtle bg-opacity-50 d-flex flex-row gap-2 ps-3 pe-2 pt-2 pb-2 mb-4">
-  <button class="btn btn-sm NavButton" routerLink="/exchange"><span class="lead">Exchange</span></button>
-  <button class="btn btn-sm NavButton" routerLink="/trailing-trades"><span class="lead">Trade</span></button>
-</div>
+<mat-toolbar color="primary" class="toolbar-container">
+  <span class="h1 text-light">SpotBot Portfolio</span>
+</mat-toolbar>
+
+<mat-toolbar color="primary" class="nav-toolbar elevation-2" fxLayout="row" fxLayoutGap="8px">
+  <button mat-button class="mat-button" routerLink="/exchange">
+    <span class="lead">Exchange</span>
+  </button>
+  <button mat-button class="mat-button" routerLink="/trailing-trades">
+    <span class="lead">Trade</span>
+  </button>
+</mat-toolbar>
+
 <router-outlet></router-outlet>
