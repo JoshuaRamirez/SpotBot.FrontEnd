@@ -84,6 +84,7 @@ describe('TextBoxComponent', () => {
     component.TextBoxFormControl.markAsTouched();
     fixture.detectChanges();
     component.TextBoxFormControl.setErrors(null);
+    component.IsValid = true;
     fixture.detectChanges();
     const errorElement = fixture.debugElement.query(By.css('mat-error'));
     expect(errorElement).toBeNull();
