@@ -4,6 +4,7 @@ import { LoginScreenComponent } from "./Components/Screens/LoginScreen/LoginScre
 import { ExchangeScreenComponent } from "./Components/Screens/ExchangeScreen/ExchangeScreen.Component";
 import { ScreenLayoutComponent } from "./Components/Layout/ScreenLayout.Component";
 import {TrailingTradesComponent} from "./Components/Screens/TrailingTradesScreen/TrailingTrades.Component";
+import {GrowthTraderComponent} from "./Components/Screens/GrowthTraderScreen/GrowthTrader.Component";
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
       { path: 'login', component: LoginScreenComponent },
       { path: 'exchange', component: ExchangeScreenComponent },
       { path: 'trailing-trades', component: TrailingTradesComponent },
+      { path: 'growth-trader', component: GrowthTraderComponent },
       { path: '', redirectTo: '/login', pathMatch: 'full' },
     ]
   }
