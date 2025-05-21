@@ -1,5 +1,6 @@
 import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios';
 import {Application} from "../Domain/Application";
+import {HttpErrorEvent} from "../Events/HttpErrorEvent";
 
 type verbString = 'get' | 'post' | 'put' | 'patch' | 'delete';
 
@@ -58,6 +59,15 @@ export class HttpResourceApi {
   }
 
   private handleError(error: AxiosError): void {
-
+    if (error.response) {
+      const status = error.response.status;
+      const url = error.config?.url ?? 'unknown url';
+      console.error(`Request to ${url} failed with status ${status}`, error.response.data);
+    } else if (error.request) {
+      console.error('No response received:', error.message);
+    } else {
+      console.error('Error setting up request:', error.message);
+    }
+    new HttpErrorEvent(error).Publish();
   }
 }
