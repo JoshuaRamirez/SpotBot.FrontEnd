@@ -18,6 +18,7 @@ import { LoginScreenComponent } from './Components/Screens/LoginScreen/LoginScre
 import {MatIconModule} from "@angular/material/icon";
 import {ScreenLayoutComponent} from "./Components/Layout/ScreenLayout.Component";
 import {TrailingTradesComponent} from "./Components/Screens/TrailingTradesScreen/TrailingTrades.Component";
+import {GrowthTraderComponent} from "./Components/Screens/GrowthTraderScreen/GrowthTrader.Component";
 import {MatSelectModule} from "@angular/material/select";
 import {TradeRowComponent} from "./Components/Screens/TrailingTradesScreen/TradeRow/TradeRow.Component";
 import {TextBoxComponent} from "./Components/Controls/TextBox/TextBox.Component";
@@ -31,6 +32,7 @@ import {DropDownComponent} from "./Components/Controls/DropDown/DropDown.Compone
     LoginScreenComponent,
     ScreenLayoutComponent,
     TrailingTradesComponent,
+    GrowthTraderComponent,
     TradeRowComponent,
     TextBoxComponent,
     DropDownComponent
