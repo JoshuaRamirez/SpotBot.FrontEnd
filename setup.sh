@@ -1,8 +1,19 @@
 #!/bin/bash
-set -e
 
-# Install all Node dependencies
-npm ci --no-progress
+# Load optional environment variables
+if [ -f ".env" ]; then
+  export $(grep -v '^#' .env | xargs)
+fi
 
-# Install global utilities used by the project
+# Install Angular CLI globally
 npm install -g @angular/cli
+
+# Install project dependencies
+pnpm install
+
+# Optional: check test runner availability
+pnpm exec vitest --version
+
+# Persist environment variables for Codex tasks
+echo "export NODE_ENV=development" >> ~/.bashrc
+echo "export CI=true" >> ~/.bashrc
