@@ -1,0 +1,68 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <mat-card class="options-card">
+        <mat-card-title>Growth Trading Options</mat-card-title>
+        <mat-card-content fxLayout="column" fxLayoutGap="10px">
+          <mat-form-field appearance="fill" matTooltip="When an asset grows by this percentage it will be automatically purchased.">
+            <mat-label>Growth Buy Trigger %</mat-label>
+            <input matInput type="number" [(ngModel)]="Model.Options.GrowthBuyTriggerPercent" placeholder="Enter percentage" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" matTooltip="Percentage drop after purchase that triggers a sell.">
+            <mat-label>Trailing Stop Loss %</mat-label>
+            <input matInput type="number" [(ngModel)]="Model.Options.TrailingStopLossPercent" placeholder="Enter percentage" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" matTooltip="Total capital to allocate for trading.">
+            <mat-label>Working Capital</mat-label>
+            <input matInput type="number" [(ngModel)]="Model.Options.WorkingCapital" placeholder="Amount available" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" matTooltip="Minimum trade size in the base currency.">
+            <mat-label>Minimum Entry Size</mat-label>
+            <input matInput type="number" [(ngModel)]="Model.Options.MinimumEntrySize" placeholder="Minimum position" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" matTooltip="Asset used when taking profit.">
+            <mat-label>Profit Base Asset</mat-label>
+            <input matInput [(ngModel)]="Model.Options.ProfitBaseAsset" placeholder="e.g. USDT" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" matTooltip="Percentage of working assets to take when profit trigger fires.">
+            <mat-label>Take Profit %</mat-label>
+            <input matInput type="number" [(ngModel)]="Model.Options.TakeProfitPercent" placeholder="Enter percentage" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" matTooltip="Growth percentage of the working assets required before taking profit.">
+            <mat-label>Take Profit Trigger %</mat-label>
+            <input matInput type="number" [(ngModel)]="Model.Options.TakeProfitTriggerPercent" placeholder="Enter percentage" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" matTooltip="If total working assets fall by this percent, all positions are closed.">
+            <mat-label>Total Stop Loss %</mat-label>
+            <input matInput type="number" [(ngModel)]="Model.Options.TotalStopLossPercent" placeholder="Enter percentage" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" matTooltip="Profit amount in base currency that stops all trading when reached.">
+            <mat-label>Total Take Profit</mat-label>
+            <input matInput type="number" [(ngModel)]="Model.Options.TotalTakeProfitAmount" placeholder="Amount" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" matTooltip="How often positions are rebalanced (in minutes).">
+            <mat-label>Balancing Interval (min)</mat-label>
+            <input matInput type="number" [(ngModel)]="Model.Options.BalancingIntervalMinutes" placeholder="Minutes" />
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" matTooltip="Total duration to run the strategy (e.g. 1d 2h).">
+            <mat-label>Run Length</mat-label>
+            <input matInput [(ngModel)]="Model.Options.RunLength" placeholder="Time span" />
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions fxLayoutAlign="end">
+          <button mat-raised-button color="primary" (click)="Interactions.SaveButtonClicked()">Save</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
