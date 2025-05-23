@@ -64,7 +64,7 @@ describe('TextBoxComponent', () => {
   it('should update internal value when input value changes', () => {
     const inputElement = fixture.debugElement.query(By.css('input')).nativeElement;
     inputElement.value = 'new value';
-    inputElement.dispatchEvent(new Event('keyup'));
+    inputElement.dispatchEvent(new Event('input'));
     fixture.detectChanges();
     expect(component.Value).toBe('new value');
   });
