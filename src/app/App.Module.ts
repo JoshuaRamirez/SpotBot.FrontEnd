@@ -9,21 +9,21 @@ import {MatInputModule} from "@angular/material/input";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatCardModule} from "@angular/material/card";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import { ToolbarComponent } from './Toolbar/Toolbar.Component';
-import { ExchangeScreenComponent } from './Components/Screens/ExchangeScreen/ExchangeScreen.Component';
+import { ToolbarComponent } from './Presentation/Layout/Toolbar/Toolbar.Component';
+import { ExchangeScreenComponent } from './Presentation/Screens/Exchange/ExchangeScreen.Component';
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import { LoginScreenComponent } from './Components/Screens/LoginScreen/LoginScreen.Component';
+import { LoginScreenComponent } from './Presentation/Screens/Login/LoginScreen.Component';
 import {MatIconModule} from "@angular/material/icon";
-import {ScreenLayoutComponent} from "./Components/Layout/ScreenLayout.Component";
-import {TrailingTradesComponent} from "./Components/Screens/TrailingTradesScreen/TrailingTrades.Component";
-import {GrowthTraderComponent} from "./Components/Screens/GrowthTraderScreen/GrowthTrader.Component";
+import {ScreenLayoutComponent} from "./Presentation/Layout/ScreenLayout/ScreenLayout.Component";
+import {TrailingTradesScreenComponent} from "./Presentation/Screens/TrailingTrades/TrailingTradesScreen.Component";
+import {GrowthTraderScreenComponent} from "./Presentation/Screens/GrowthTrader/GrowthTraderScreen.Component";
 import {MatSelectModule} from "@angular/material/select";
-import {TradeRowComponent} from "./Components/Screens/TrailingTradesScreen/TradeRow/TradeRow.Component";
-import {TextBoxComponent} from "./Components/Controls/TextBox/TextBox.Component";
-import {DropDownComponent} from "./Components/Controls/DropDown/DropDown.Component";
-import {GrowthTradingOptionsComponent} from "./Components/GrowthTradingOptions/GrowthTradingOptions.Component";
+import {TradeRowComponent} from "./Presentation/Screens/TrailingTrades/TradeRow/TradeRow.Component";
+import {TextBoxComponent} from "./Presentation/Controls/TextBox/TextBox.Component";
+import {DropDownComponent} from "./Presentation/Controls/DropDown/DropDown.Component";
+import {GrowthTradingOptionsComponent} from "./Presentation/Screens/GrowthTrader/GrowthTradingOptions/GrowthTradingOptions.Component";
 import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
@@ -33,8 +33,8 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     ExchangeScreenComponent,
     LoginScreenComponent,
     ScreenLayoutComponent,
-    TrailingTradesComponent,
-    GrowthTraderComponent,
+    TrailingTradesScreenComponent,
+    GrowthTraderScreenComponent,
     TradeRowComponent,
     TextBoxComponent,
     DropDownComponent,

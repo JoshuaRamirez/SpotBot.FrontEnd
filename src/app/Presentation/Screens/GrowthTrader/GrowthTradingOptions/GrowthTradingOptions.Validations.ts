@@ -1,6 +1,6 @@
-import {GrowthTradingOptions} from "../../Domain/GrowthTradingOptions";
-import {ValidationResult} from "../../Validation/Core/ValidationResult";
-import {Validations} from "../../Validation/Validations";
+import { ValidationResult } from "src/app/Validation/Core/ValidationResult";
+import {GrowthTradingOptions} from "../../../../Domain/GrowthTradingOptions";
+import { Validations } from "src/app/Validation/Validations";
 
 export class GrowthTradingOptionsValidations {
   constructor(private readonly _options: GrowthTradingOptions) {}

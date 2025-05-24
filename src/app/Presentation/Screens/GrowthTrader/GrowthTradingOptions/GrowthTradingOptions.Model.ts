@@ -1,4 +1,4 @@
-import {GrowthTradingOptions} from "../../Domain/GrowthTradingOptions";
+import {GrowthTradingOptions} from "../../../../Domain/GrowthTradingOptions";
 import {GrowthTradingOptionsValidations} from "./GrowthTradingOptions.Validations";
 
 export class GrowthTradingOptionsModel {

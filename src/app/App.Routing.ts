@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginScreenComponent } from "./Components/Screens/LoginScreen/LoginScreen.Component";
-import { ExchangeScreenComponent } from "./Components/Screens/ExchangeScreen/ExchangeScreen.Component";
-import { ScreenLayoutComponent } from "./Components/Layout/ScreenLayout.Component";
-import {TrailingTradesComponent} from "./Components/Screens/TrailingTradesScreen/TrailingTrades.Component";
-import {GrowthTraderComponent} from "./Components/Screens/GrowthTraderScreen/GrowthTrader.Component";
+import {ScreenLayoutComponent} from "./Presentation/Layout/ScreenLayout/ScreenLayout.Component";
+import {ExchangeScreenComponent} from "./Presentation/Screens/Exchange/ExchangeScreen.Component";
+import {GrowthTraderScreenComponent} from "./Presentation/Screens/GrowthTrader/GrowthTraderScreen.Component";
+import {LoginScreenComponent} from "./Presentation/Screens/Login/LoginScreen.Component";
+import {TrailingTradesScreenComponent} from "./Presentation/Screens/TrailingTrades/TrailingTradesScreen.Component";
+
 
 const routes: Routes = [
   {
@@ -13,8 +14,8 @@ const routes: Routes = [
     children: [
       { path: 'login', component: LoginScreenComponent },
       { path: 'exchange', component: ExchangeScreenComponent },
-      { path: 'trailing-trades', component: TrailingTradesComponent },
-      { path: 'growth-trader', component: GrowthTraderComponent },
+      { path: 'trailing-trades', component: TrailingTradesScreenComponent },
+      { path: 'growth-trader', component: GrowthTraderScreenComponent },
       { path: '', redirectTo: '/login', pathMatch: 'full' },
     ]
   }
