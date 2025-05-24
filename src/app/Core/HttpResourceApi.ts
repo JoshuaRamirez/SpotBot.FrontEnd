@@ -1,6 +1,11 @@
 import axios, { AxiosError, AxiosResponse, AxiosRequestConfig } from 'axios';
-import {Application} from "../Domain/Application";
-import {HttpErrorEvent} from "../Events/HttpErrorEvent";
+import { Application } from '../Domain/Application';
+import { HttpErrorEvent } from '../Events/HttpErrorEvent';
+import { MOCK_USERS } from '../Api/TestData/Users';
+import { MOCK_ACCOUNTS } from '../Api/TestData/Accounts';
+import { MOCK_ENCRYPTION_KEY } from '../Api/TestData/EncryptionKey';
+import { MOCK_EXCHANGE } from '../Api/TestData/Exchange';
+import { MOCK_USER_TOKEN } from '../Api/TestData/UserToken';
 
 type verbString = 'get' | 'post' | 'put' | 'patch' | 'delete';
 
@@ -25,6 +30,35 @@ export class HttpResourceApi {
     this._resourceUrl = resourceUrl;
   }
 
+  private static getMockResponse<TResponse>(config: AxiosRequestConfig): AxiosResponse<TResponse> | null {
+    const url = config.url ?? '';
+    const method = (config.method ?? 'get').toLowerCase();
+
+    const configCast = config as any;
+
+    if (url.endsWith('/users') && method === 'get') {
+      return { data: MOCK_USERS as unknown as TResponse, status: 200, statusText: 'OK', headers: {}, config: configCast };
+    }
+
+    if (/\/accounts\/\d+$/.test(url) && method === 'get') {
+      return { data: MOCK_ACCOUNTS as unknown as TResponse, status: 200, statusText: 'OK', headers: {}, config: configCast };
+    }
+
+    if (/\/encryption-key\/\d+$/.test(url) && method === 'get') {
+      return { data: MOCK_ENCRYPTION_KEY as unknown as TResponse, status: 200, statusText: 'OK', headers: {}, config: configCast };
+    }
+
+    if (/\/exchange\/\d+$/.test(url) && method === 'get') {
+      return { data: MOCK_EXCHANGE as unknown as TResponse, status: 200, statusText: 'OK', headers: {}, config: configCast };
+    }
+
+    if (url.endsWith('/user-credentials/') && method === 'post') {
+      return { data: MOCK_USER_TOKEN as unknown as TResponse, status: 200, statusText: 'OK', headers: {}, config: configCast };
+    }
+
+    return null;
+  }
+
   protected async SendRequest<TRequest, TResponse>(httpVerb: HttpVerb, data?: any, uriAddendum?: string): Promise<TResponse> {
     let url = this._resourceUrl;
     url = url.replace("//", "/");
@@ -40,6 +74,12 @@ export class HttpResourceApi {
     const httpVerbString = httpVerb as verbString;
     const config: AxiosRequestConfig = { url, data, headers };
     config.method = httpVerbString;
+
+    const mock = HttpResourceApi.getMockResponse<TResponse>(config);
+    if (mock) {
+      return Promise.resolve(this.handleResponse(mock));
+    }
+
     try {
       const response = await HttpResourceApi._axios.request<TResponse>(config);
       return this.handleResponse(response);
