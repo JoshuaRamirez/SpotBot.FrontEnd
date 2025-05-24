@@ -1,5 +1,18 @@
 # Codex Agent Guide
 
+
+## Tests Instructions
+- Run build: `npm run build`
+- Run lint: `npm run lint`
+- Run tests: `npm run test`
+
+## PR Instructions
+- PR title format: `[Codex] <summary>`
+- Include a summary section with rationale and before/after behavior
+
+## Notes
+All code changes must pass build, lint, unit tests, and type checks.
+
 ## Folders
 - /src/app - Contains the main application logic and components.
 - /src/assets - Contains static assets like images, styles, and scripts.
@@ -23,19 +36,6 @@
 - Shared components that are used across multiple screens go in the Components folder
 - Screens are aggregate component roots that may contain multiple components.
 - When Screens contain multiple components, the components should be placed in folders named after themselves.
-
-
-
-## Lint/Test
-- Run lint: `pnpm lint`
-- Run tests: `pnpm test`
-
-## PR Instructions
-- PR title format: `[Codex] <summary>`
-- Include a summary section with rationale and before/after behavior
-
-## Notes
-All code changes must pass lint and type checks.
 
 
 ## Component Architecture Specification
