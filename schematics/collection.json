@@ -1,0 +1,10 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "role-based-component": {
+      "description": "Generate a role-based component",
+      "factory": "./role-based-component/index#roleBasedComponent",
+      "schema": "./role-based-component/schema.json"
+    }
+  }
+}

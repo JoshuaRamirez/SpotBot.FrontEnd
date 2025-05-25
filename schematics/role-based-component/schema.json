@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "role-based-component",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Component name"
+    },
+    "type": {
+      "type": "string",
+      "description": "Component category (screen or control)",
+      "enum": ["screen", "control"],
+      "default": "screen"
+    }
+  },
+  "required": ["name"]
+}
