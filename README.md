@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Custom Schematics
+
+A collection of custom schematics is available under the `schematics` folder. Use the `role-based-component` schematic to scaffold a new screen or control using the project's role-based architecture. Run:
+
+```bash
+ng generate ./schematics:role-based-component --name=my-feature --type=screen
+```
+
+The schematic creates a folder with all role files (`Component`, `Api`, `Behaviors`, `Events`, `Interactions`, `Model`, `Validation`, `Styles.scss`, and `Template.html`).
