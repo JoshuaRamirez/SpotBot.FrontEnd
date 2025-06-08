@@ -35,3 +35,23 @@ ng generate ./schematics:role-based-component --name=my-feature --type=screen
 ```
 
 The schematic creates a folder with all role files (`Component`, `Api`, `Behaviors`, `Events`, `Interactions`, `Model`, `Validation`, `Styles.scss`, and `Template.html`).
+
+## Resolving Merge Conflicts
+
+Occasionally merges may fail due to conflicting changes. Use the following steps to resolve them:
+
+1. Run `git status` to see which files contain conflicts.
+2. Open each conflicting file and look for the conflict markers:
+
+   ```
+   <<<<<<< HEAD
+   your changes
+   =======
+   incoming changes
+   >>>>>>> other-branch
+   ```
+
+3. Edit the file to keep the desired content and remove the conflict markers.
+4. Add the resolved files with `git add <file>`.
+5. Commit the merge using `git commit`.
+6. Finally, run your build and tests to confirm everything works as expected.
